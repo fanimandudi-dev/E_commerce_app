@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 2000" width="1200" height="2000">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; fill: #111827; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #374151; }
+      .text { font-family: Arial, sans-serif; font-size: 14px; fill: #374151; }
+      .text-small { font-family: Arial, sans-serif; font-size: 12px; fill: #6b7280; }
+      .text-green { fill: #22c55e; }
+      .text-green-dark { fill: #16a34a; }
+      .bg-green { fill: #22c55e; }
+      .bg-green-light { fill: #dcfce7; }
+      .border-green { stroke: #22c55e; }
+    </style>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#22c55e"/>
+    </marker>
+  </defs>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="80" fill="#22c55e"/>
+  <text x="600" y="30" fill="white" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">Food Campus</text>
+  <text x="600" y="50" fill="white" font-family="Arial" font-size="16" text-anchor="middle">Cahier des Charges Fonctionnel</text>
+  <text x="600" y="70" fill="white" font-family="Arial" font-size="12" text-anchor="middle">Version 2.0 - 19 Octobre 2026</text>
+
+  <!-- Logo -->
+  <g transform="translate(50, 10)">
+    <rect x="0" y="0" width="60" height="60" rx="10" fill="white" fill-opacity="0.2"/>
+    <circle cx="30" cy="30" r="20" fill="white"/>
+    <text x="30" y="35" fill="#22c55e" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">FC</text>
+  </g>
+
+  <!-- Table of Contents -->
+  <rect x="50" y="100" width="1100" height="60" rx="10" fill="#f9fafb" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="600" y="135" fill="#111827" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">Table des Matières</text>
+
+  <g transform="translate(80, 180)">
+    <text x="0" y="20" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">1. Introduction</text>
+    <text x="0" y="40" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">2. Contexte et Objectifs</text>
+    <text x="0" y="60" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">3. Public Cible</text>
+    <text x="0" y="80" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">4. Périmètre Fonctionnel</text>
+    <text x="0" y="100" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">5. Exigences Fonctionnelles</text>
+    <text x="0" y="120" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">6. Parcours Utilisateur</text>
+    <text x="0" y="140" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">7. Règles Métier</text>
+    <text x="0" y="160" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">8. Exigences Non Fonctionnelles</text>
+    <text x="0" y="180" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">9. Contraintes Techniques</text>
+    <text x="0" y="200" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">10. Maquettes et Éléments Visuels</text>
+    <text x="0" y="220" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">11. Priorisation</text>
+    <text x="0" y="240" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">12. Glossaire</text>
+  </g>
+
+  <!-- Section 2: Contexte et Objectifs -->
+  <rect x="50" y="280" width="1100" height="40" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+  <text x="80" y="305" fill="#16a34a" font-family="Arial" font-size="18" font-weight="bold">2. Contexte et Objectifs</text>
+
+  <g transform="translate(80, 340)">
+    <text x="0" y="20" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">Problématique :</text>
+    <text x="0" y="40" fill="#374151" font-family="Arial" font-size="14">Difficulté pour les étudiants à découvrir et commander auprès des boutiques du campus</text>
+    <text x="0" y="60" fill="#374151" font-family="Arial" font-size="14">Paiement en espèces non traçable</text>
+    <text x="0" y="80" fill="#374151" font-family="Arial" font-size="14">Files d'attente et manque d'organisation</text>
+    
+    <text x="0" y="120" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">Objectifs :</text>
+    <g transform="translate(20, 140)">
+      <circle cx="10" cy="10" r="8" fill="#22c55e"/>
+      <text x="25" y="15" fill="#374151" font-family="Arial" font-size="14">Simplifier la découverte des boutiques</text>
+    </g>
+    <g transform="translate(20, 165)">
+      <circle cx="10" cy="10" r="8" fill="#22c55e"/>
+      <text x="25" y="15" fill="#374151" font-family="Arial" font-size="14">Faciliter le processus de commande</text>
+    </g>
+    <g transform="translate(20, 190)">
+      <circle cx="10" cy="10" r="8" fill="#22c55e"/>
+      <text x="25" y="15" fill="#374151" font-family="Arial" font-size="14">Sécuriser la remise et le paiement</text>
+    </g>
+    <g transform="translate(20, 215)">
+      <circle cx="10" cy="10" r="8" fill="#22c55e"/>
+      <text x="25" y="15" fill="#374151" font-family="Arial" font-size="14">Tracer toutes les transactions via QR codes</text>
+    </g>
+  </g>
+
+  <!-- Section 3: Public Cible -->
+  <rect x="50" y="460" width="1100" height="40" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+  <text x="80" y="485" fill="#16a34a" font-family="Arial" font-size="18" font-weight="bold">3. Public Cible</text>
+
+  <!-- Personas -->
+  <g transform="translate(80, 520)">
+    <!-- Persona 1: Étudiant -->
+    <rect x="0" y="0" width="350" height="200" rx="10" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+    <rect x="20" y="20" width="60" height="60" rx="5" fill="#f3f4f6"/>
+    <text x="110" y="40" fill="#111827" font-family="Arial" font-size="16" font-weight="bold">Jean - Étudiant</text>
+    <text x="110" y="60" fill="#6b7280" font-family="Arial" font-size="12">22 ans, Université de Kinshasa</text>
+    <text x="20" y="100" fill="#111827" font-family="Arial" font-size="12" font-weight="bold">Besoins :</text>
+    <text x="25" y="120" fill="#374151" font-family="Arial" font-size="12">• Commander rapidement</text>
+    <text x="25" y="140" fill="#374151" font-family="Arial" font-size="12">• Payer en espèces</text>
+    <text x="25" y="160" fill="#374151" font-family="Arial" font-size="12">• Recevoir notifications</text>
+    
+    <!-- Persona 2: Vendeur -->
+    <rect x="370" y="0" width="350" height="200" rx="10" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+    <rect x="390" y="20" width="60" height="60" rx="5" fill="#f3f4f6"/>
+    <text x="480" y="40" fill="#111827" font-family="Arial" font-size="16" font-weight="bold">Marie - Vendeur</text>
+    <text x="480" y="60" fill="#6b7280" font-family="Arial" font-size="12">35 ans, Fresh Corner</text>
+    <text x="390" y="100" fill="#111827" font-family="Arial" font-size="12" font-weight="bold">Besoins :</text>
+    <text x="395" y="120" fill="#374151" font-family="Arial" font-size="12">• Voir commandes en temps réel</text>
+    <text x="395" y="140" fill="#374151" font-family="Arial" font-size="12">• Scanner QR codes</text>
+    <text x="395" y="160" fill="#374151" font-family="Arial" font-size="12">• Confirmer réception espèces</text>
+    
+    <!-- Persona 3: Admin -->
+    <rect x="740" y="0" width="350" height="200" rx="10" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+    <rect x="760" y="20" width="60" height="60" rx="5" fill="#f3f4f6"/>
+    <text x="850" y="40" fill="#111827" font-family="Arial" font-size="16" font-weight="bold">Pierre - Admin</text>
+    <text x="850" y="60" fill="#6b7280" font-family="Arial" font-size="12">45 ans, Responsable logistique</text>
+    <text x="760" y="100" fill="#111827" font-family="Arial" font-size="12" font-weight="bold">Besoins :</text>
+    <text x="765" y="120" fill="#374151" font-family="Arial" font-size="12">• Superviser points de remise</text>
+    <text x="765" y="140" fill="#374151" font-family="Arial" font-size="12">• Gérer boutiques autorisées</text>
+    <text x="765" y="160" fill="#374151" font-family="Arial" font-size="12">• Accéder aux statistiques</text>
+  </g>
+
+  <!-- Section 4: Périmètre Fonctionnel -->
+  <rect x="50" y="740" width="1100" height="40" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+  <text x="80" y="765" fill="#16a34a" font-family="Arial" font-size="18" font-weight="bold">4. Périmètre Fonctionnel</text>
+
+  <g transform="translate(80, 800)">
+    <text x="0" y="20" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">Inclus dans le MVP :</text>
+    <g transform="translate(20, 40)">
+      <rect x="0" y="0" width="200" height="30" rx="5" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+      <text x="10" y="20" fill="#16a34a" font-family="Arial" font-size="12">✓ Authentification</text>
+    </g>
+    <g transform="translate(230, 40)">
+      <rect x="0" y="0" width="200" height="30" rx="5" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+      <text x="10" y="20" fill="#16a34a" font-family="Arial" font-size="12">✓ Découverte boutiques</text>
+    </g>
+    <g transform="translate(460, 40)">
+      <rect x="0" y="0" width="200" height="30" rx="5" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+      <text x="10" y="20" fill="#16a34a" font-family="Arial" font-size="12">✓ Panier mono-boutique</text>
+    </g>
+    <g transform="translate(690, 40)">
+      <rect x="0" y="0" width="200" height="30" rx="5" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+      <text x="10" y="20" fill="#16a34a" font-family="Arial" font-size="12">✓ Checkout</text>
+    </g>
+    <g transform="translate(20, 75)">
+      <rect x="0" y="0" width="200" height="30" rx="5" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+      <text x="10" y="20" fill="#16a34a" font-family="Arial" font-size="12">✓ QR Code</text>
+    </g>
+    <g transform="translate(230, 75)">
+      <rect x="0" y="0" width="200" height="30" rx="5" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+      <text x="10" y="20" fill="#16a34a" font-family="Arial" font-size="12">✓ Suivi commandes</text>
+    </g>
+    <g transform="translate(460, 75)">
+      <rect x="0" y="0" width="200" height="30" rx="5" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+      <text x="10" y="20" fill="#16a34a" font-family="Arial" font-size="12">✓ Historique</text>
+    </g>
+    <g transform="translate(690, 75)">
+      <rect x="0" y="0" width="200" height="30" rx="5" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+      <text x="10" y="20" fill="#16a34a" font-family="Arial" font-size="12">✓ Notifications</text>
+    </g>
+
+    <text x="0" y="130" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">Exclus du MVP (Hors Périmètre) :</text>
+    <g transform="translate(20, 150)">
+      <rect x="0" y="0" width="200" height="30" rx="5" fill="#fee2e2" stroke="#fecaca" stroke-width="1"/>
+      <text x="10" y="20" fill="#dc2626" font-family="Arial" font-size="12">✗ Paiement électronique</text>
+    </g>
+    <g transform="translate(230, 150)">
+      <rect x="0" y="0" width="200" height="30" rx="5" fill="#fee2e2" stroke="#fecaca" stroke-width="1"/>
+      <text x="10" y="20" fill="#dc2626" font-family="Arial" font-size="12">✗ Livraison à domicile</text>
+    </g>
+    <g transform="translate(460, 150)">
+      <rect x="0" y="0" width="200" height="30" rx="5" fill="#fee2e2" stroke="#fecaca" stroke-width="1"/>
+      <text x="10" y="20" fill="#dc2626" font-family="Arial" font-size="12">✗ Messagerie instantanée</text>
+    </g>
+    <g transform="translate(690, 150)">
+      <rect x="0" y="0" width="200" height="30" rx="5" fill="#fee2e2" stroke="#fecaca" stroke-width="1"/>
+      <text x="10" y="20" fill="#dc2626" font-family="Arial" font-size="12">✗ Multi-boutiques/panier</text>
+    </g>
+  </g>
+
+  <!-- Section 6: Parcours Utilisateur -->
+  <rect x="50" y="920" width="1100" height="40" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+  <text x="80" y="945" fill="#16a34a" font-family="Arial" font-size="18" font-weight="bold">6. Parcours Utilisateur Principal</text>
+
+  <!-- User Journey Flow -->
+  <g transform="translate(80, 980)">
+    <!-- Row 1 -->
+    <rect x="0" y="0" width="150" height="60" rx="10" fill="#22c55e" fill-opacity="0.2" stroke="#22c55e" stroke-width="2"/>
+    <text x="75" y="35" fill="#111827" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">1. Connexion</text>
+    
+    <path d="M150 30 L250 30" fill="none" stroke="#22c55e" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <rect x="250" y="0" width="150" height="60" rx="10" fill="#22c55e" fill-opacity="0.2" stroke="#22c55e" stroke-width="2"/>
+    <text x="325" y="35" fill="#111827" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">2. Découverte</text>
+    
+    <path d="M400 30 L500 30" fill="none" stroke="#22c55e" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <rect x="500" y="0" width="150" height="60" rx="10" fill="#22c55e" fill-opacity="0.2" stroke="#22c55e" stroke-width="2"/>
+    <text x="575" y="35" fill="#111827" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">3. Sélection</text>
+    
+    <path d="M650 30 L750 30" fill="none" stroke="#22c55e" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <rect x="750" y="0" width="150" height="60" rx="10" fill="#22c55e" fill-opacity="0.2" stroke="#22c55e" stroke-width="2"/>
+    <text x="825" y="35" fill="#111827" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">4. Panier</text>
+    
+    <!-- Row 2 -->
+    <path d="M825 60 L825 110" fill="none" stroke="#22c55e" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <rect x="750" y="110" width="150" height="60" rx="10" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="2"/>
+    <text x="825" y="145" fill="#111827" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">5. Checkout</text>
+    
+    <path d="M825 140 L700 140" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <rect x="500" y="110" width="150" height="60" rx="10" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="2"/>
+    <text x="575" y="145" fill="#111827" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">6. Confirmation</text>
+    
+    <path d="M500 140 L350 140" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <rect x="250" y="110" width="150" height="60" rx="10" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="2"/>
+    <text x="325" y="145" fill="#111827" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">7. QR Code</text>
+    
+    <!-- Row 3 -->
+    <path d="M325 170 L325 220" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <rect x="250" y="220" width="150" height="60" rx="10" fill="#16a34a" fill-opacity="0.2" stroke="#16a34a" stroke-width="2"/>
+    <text x="325" y="255" fill="#111827" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">8. Suivi</text>
+    
+    <path d="M325 250 L175 250" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <rect x="0" y="220" width="150" height="60" rx="10" fill="#16a34a" fill-opacity="0.2" stroke="#16a34a" stroke-width="2"/>
+    <text x="75" y="255" fill="#111827" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">9. Paiement</text>
+  </g>
+
+  <!-- Status Legend -->
+  <g transform="translate(80, 1100)">
+    <text x="0" y="20" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">Légende des Statuts :</text>
+    
+    <g transform="translate(0, 40)">
+      <rect x="0" y="0" width="20" height="20" rx="5" fill="#22c55e" fill-opacity="0.2"/>
+      <text x="25" y="15" fill="#111827" font-family="Arial" font-size="12">En attente</text>
+    </g>
+    <g transform="translate(0, 70)">
+      <rect x="0" y="0" width="20" height="20" rx="5" fill="#10b981" fill-opacity="0.2"/>
+      <text x="25" y="15" fill="#111827" font-family="Arial" font-size="12">En préparation</text>
+    </g>
+    <g transform="translate(0, 100)">
+      <rect x="0" y="0" width="20" height="20" rx="5" fill="#16a34a" fill-opacity="0.2"/>
+      <text x="25" y="15" fill="#111827" font-family="Arial" font-size="12">Complétée</text>
+    </g>
+    <g transform="translate(200, 40)">
+      <circle cx="10" cy="10" r="8" fill="#22c55e"/>
+      <text x="25" y="15" fill="#111827" font-family="Arial" font-size="12">Paiement reçu</text>
+    </g>
+    <g transform="translate(200, 70)">
+      <circle cx="10" cy="10" r="8" fill="#fbbf24"/>
+      <text x="25" y="15" fill="#111827" font-family="Arial" font-size="12">Paiement en attente</text>
+    </g>
+  </g>
+
+  <!-- Section 7: Règles Métier -->
+  <rect x="50" y="1200" width="1100" height="40" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+  <text x="80" y="1225" fill="#16a34a" font-family="Arial" font-size="18" font-weight="bold">7. Règles Métier</text>
+
+  <g transform="translate(80, 1260)">
+    <text x="0" y="20" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">Règles du Panier :</text>
+    <g transform="translate(20, 40)">
+      <text x="0" y="20" fill="#374151" font-family="Arial" font-size="12">• Un panier = une boutique</text>
+      <text x="0" y="40" fill="#374151" font-family="Arial" font-size="12">• Premier produit lie le panier à sa boutique</text>
+      <text x="0" y="60" fill="#374151" font-family="Arial" font-size="12">• Conflit → Dialogue de confirmation</text>
+      <text x="0" y="80" fill="#374151" font-family="Arial" font-size="12">• Produit indisponible → Bloqué</text>
+    </g>
+
+    <text x="400" y="20" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">Règles de Commande :</text>
+    <g transform="translate(420, 40)">
+      <text x="0" y="20" fill="#374151" font-family="Arial" font-size="12">• Minimum 1 produit</text>
+      <text x="0" y="40" fill="#374151" font-family="Arial" font-size="12">• Point de remise obligatoire</text>
+      <text x="0" y="60" fill="#374151" font-family="Arial" font-size="12">• Statut initial : En attente</text>
+      <text x="0" y="80" fill="#374151" font-family="Arial" font-size="12">• QR code unique par commande</text>
+    </g>
+
+    <text x="0" y="120" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">Règles de Paiement :</text>
+    <g transform="translate(20, 140)">
+      <text x="0" y="20" fill="#374151" font-family="Arial" font-size="12">• Espèces uniquement (FC)</text>
+      <text x="0" y="40" fill="#374151" font-family="Arial" font-size="12">• Confirmation par vendeur après réception</text>
+      <text x="0" y="60" fill="#374151" font-family="Arial" font-size="12">• Pas de rendu de monnaie géré</text>
+    </g>
+
+    <!-- State Diagram -->
+    <g transform="translate(600, 100)">
+      <text x="0" y="20" fill="#111827" font-family="Arial" font-size="14" font-weight="bold">Transitions de Statuts :</text>
+      
+      <!-- Commande States -->
+      <rect x="0" y="40" width="120" height="50" rx="10" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+      <text x="60" y="65" fill="#16a34a" font-family="Arial" font-size="12" text-anchor="middle">En attente</text>
+      
+      <path d="M120 65 L220 65" fill="none" stroke="#22c55e" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <text x="170" y="55" fill="#22c55e" font-family="Arial" font-size="10" text-anchor="middle">commencer</text>
+      
+      <rect x="220" y="40" width="120" height="50" rx="10" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+      <text x="280" y="65" fill="#16a34a" font-family="Arial" font-size="12" text-anchor="middle">En préparation</text>
+      
+      <path d="M280 95 L280 140" fill="none" stroke="#22c55e" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <text x="265" y="125" fill="#22c55e" font-family="Arial" font-size="10" text-anchor="middle">terminer</text>
+      
+      <rect x="220" y="140" width="120" height="50" rx="10" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+      <text x="280" y="165" fill="#16a34a" font-family="Arial" font-size="12" text-anchor="middle">Prête</text>
+      
+      <path d="M280 165 L380 165" fill="none" stroke="#22c55e" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <text x="330" y="155" fill="#22c55e" font-family="Arial" font-size="10" text-anchor="middle">paiement</text>
+      
+      <rect x="380" y="140" width="120" height="50" rx="10" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+      <text x="440" y="165" fill="#16a34a" font-family="Arial" font-size="12" text-anchor="middle">Complétée</text>
+      
+      <!-- Paiement States -->
+      <rect x="0" y="200" width="120" height="50" rx="10" fill="#fef3c7" stroke="#fde68a" stroke-width="2"/>
+      <text x="60" y="225" fill="#d97706" font-family="Arial" font-size="12" text-anchor="middle">En attente</text>
+      
+      <path d="M120 225 L220 225" fill="none" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <text x="170" y="215" fill="#f59e0b" font-family="Arial" font-size="10" text-anchor="middle">confirmer</text>
+      
+      <rect x="220" y="200" width="120" height="50" rx="10" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+      <text x="280" y="225" fill="#16a34a" font-family="Arial" font-size="12" text-anchor="middle">Reçu</text>
+    </g>
+  </g>
+
+  <!-- Section 11: Priorisation -->
+  <rect x="50" y="1400" width="1100" height="40" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+  <text x="80" y="1425" fill="#16a34a" font-family="Arial" font-size="18" font-weight="bold">11. Priorisation (MoSCoW)</text>
+
+  <g transform="translate(80, 1460)">
+    <!-- Must Have -->
+    <rect x="0" y="0" width="300" height="40" rx="10" fill="#ef4444" fill-opacity="0.2" stroke="#ef4444" stroke-width="2"/>
+    <text x="150" y="25" fill="#dc2626" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Must Have (MVP)</text>
+    
+    <g transform="translate(10, 50)">
+      <text x="0" y="20" fill="#111827" font-family="Arial" font-size="12">• Authentification</text>
+      <text x="0" y="40" fill="#111827" font-family="Arial" font-size="12">• Découverte des boutiques</text>
+      <text x="0" y="60" fill="#111827" font-family="Arial" font-size="12">• Fiche boutique</text>
+      <text x="0" y="80" fill="#111827" font-family="Arial" font-size="12">• Panier mono-boutique</text>
+      <text x="0" y="100" fill="#111827" font-family="Arial" font-size="12">• Gestion des conflits</text>
+      <text x="0" y="120" fill="#111827" font-family="Arial" font-size="12">• Checkout</text>
+      <text x="0" y="140" fill="#111827" font-family="Arial" font-size="12">• Génération QR code</text>
+      <text x="0" y="160" fill="#111827" font-family="Arial" font-size="12">• Suivi des statuts</text>
+      <text x="0" y="180" fill="#111827" font-family="Arial" font-size="12">• Historique des commandes</text>
+    </g>
+
+    <!-- Should Have -->
+    <rect x="320" y="0" width="300" height="40" rx="10" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="2"/>
+    <text x="470" y="25" fill="#ea580c" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Should Have (MVP)</text>
+    
+    <g transform="translate(330, 50)">
+      <text x="0" y="20" fill="#111827" font-family="Arial" font-size="12">• Notifications</text>
+      <text x="0" y="40" fill="#111827" font-family="Arial" font-size="12">• Recherche</text>
+      <text x="0" y="60" fill="#111827" font-family="Arial" font-size="12">• Filtres et tri</text>
+      <text x="0" y="80" fill="#111827" font-family="Arial" font-size="12">• Instructions de remise</text>
+      <text x="0" y="100" fill="#111827" font-family="Arial" font-size="12">• Profil utilisateur</text>
+    </g>
+
+    <!-- Could Have -->
+    <rect x="640" y="0" width="300" height="40" rx="10" fill="#22c55e" fill-opacity="0.2" stroke="#22c55e" stroke-width="2"/>
+    <text x="790" y="25" fill="#16a34a" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Could Have (V2)</text>
+    
+    <g transform="translate(650, 50)">
+      <text x="0" y="20" fill="#111827" font-family="Arial" font-size="12">• Gestion admin basique</text>
+      <text x="0" y="40" fill="#111827" font-family="Arial" font-size="12">• Optimisations UI/UX</text>
+    </g>
+
+    <!-- Won't Have -->
+    <rect x="0" y="220" width="300" height="40" rx="10" fill="#6b7280" fill-opacity="0.2" stroke="#6b7280" stroke-width="2"/>
+    <text x="150" y="245" fill="#374151" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Won't Have (Future)</text>
+    
+    <g transform="translate(10, 270)">
+      <text x="0" y="20" fill="#111827" font-family="Arial" font-size="12">• Système de notation</text>
+      <text x="0" y="40" fill="#111827" font-family="Arial" font-size="12">• Statistiques</text>
+      <text x="0" y="60" fill="#111827" font-family="Arial" font-size="12">• Paiement électronique</text>
+    </g>
+  </g>
+
+  <!-- Section 12: Glossaire -->
+  <rect x="50" y="1620" width="1100" height="40" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+  <text x="80" y="1645" fill="#16a34a" font-family="Arial" font-size="18" font-weight="bold">12. Glossaire</text>
+
+  <g transform="translate(80, 1680)">
+    <g transform="translate(0, 0)">
+      <text x="0" y="20" fill="#111827" font-family="Arial" font-size="12" font-weight="bold">Boutique :</text>
+      <text x="0" y="40" fill="#374151" font-family="Arial" font-size="12">Point de vente physique sur le campus</text>
+    </g>
+    <g transform="translate(0, 60)">
+      <text x="0" y="20" fill="#111827" font-family="Arial" font-size="12" font-weight="bold">FC :</text>
+      <text x="0" y="40" fill="#374151" font-family="Arial" font-size="12">Franc Congolais, devise utilisée</text>
+    </g>
+    <g transform="translate(0, 120)">
+      <text x="0" y="20" fill="#111827" font-family="Arial" font-size="12" font-weight="bold">QR Code :</text>
+      <text x="0" y="40" fill="#374151" font-family="Arial" font-size="12">Code unique pour validation des commandes</text>
+    </g>
+    <g transform="translate(0, 180)">
+      <text x="0" y="20" fill="#111827" font-family="Arial" font-size="12" font-weight="bold">PWA :</text>
+      <text x="0" y="40" fill="#374151" font-family="Arial" font-size="12">Progressive Web App, application web installable</text>
+    </g>
+    <g transform="translate(400, 0)">
+      <text x="0" y="20" fill="#111827" font-family="Arial" font-size="12" font-weight="bold">MVP :</text>
+      <text x="0" y="40" fill="#374151" font-family="Arial" font-size="12">Minimum Viable Product</text>
+    </g>
+    <g transform="translate(400, 60)">
+      <text x="0" y="20" fill="#111827" font-family="Arial" font-size="12" font-weight="bold">Point de remise :</text>
+      <text x="0" y="40" fill="#374151" font-family="Arial" font-size="12">Lieu officiel de récupération des commandes</text>
+    </g>
+    <g transform="translate(400, 120)">
+      <text x="0" y="20" fill="#111827" font-family="Arial" font-size="12" font-weight="bold">Vendeur :</text>
+      <text x="0" y="40" fill="#374151" font-family="Arial" font-size="12">Propriétaire ou gérant d'une boutique</text>
+    </g>
+    <g transform="translate(400, 180)">
+      <text x="0" y="20" fill="#111827" font-family="Arial" font-size="12" font-weight="bold">Étudiant :</text>
+      <text x="0" y="40" fill="#374151" font-family="Arial" font-size="12">Utilisateur principal de l'application</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <rect x="50" y="1850" width="1100" height="60" rx="10" fill="#f9fafb" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="600" y="1885" fill="#6b7280" font-family="Arial" font-size="14" text-anchor="middle">Food Campus - Cahier des Charges Fonctionnel v2.0</text>
+  <text x="600" y="1905" fill="#6b7280" font-family="Arial" font-size="12" text-anchor="middle">19 Octobre 2026</text>
+
+  <!-- Decorative Elements -->
+  <g transform="translate(100, 1920)">
+    <circle cx="50" cy="20" r="15" fill="#22c55e" fill-opacity="0.3"/>
+    <circle cx="100" cy="20" r="15" fill="#22c55e" fill-opacity="0.3"/>
+    <circle cx="150" cy="20" r="15" fill="#22c55e" fill-opacity="0.3"/>
+  </g>
+  <g transform="translate(900, 1920)">
+    <circle cx="50" cy="20" r="15" fill="#22c55e" fill-opacity="0.3"/>
+    <circle cx="100" cy="20" r="15" fill="#22c55e" fill-opacity="0.3"/>
+    <circle cx="150" cy="20" r="15" fill="#22c55e" fill-opacity="0.3"/>
+  </g>
+</svg>
