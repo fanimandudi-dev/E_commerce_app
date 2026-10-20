@@ -10,18 +10,20 @@
     "typecheck": "tsc -b --pretty false"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "latest",
-    "lucide-react": "latest",
-    "qrcode.react": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-router-dom": "latest",
-    "vite": "latest",
-    "zustand": "latest"
+    "@vitejs/plugin-react": "^4.2.1",
+    "chart.js": "^4.5.1",
+    "lucide-react": "^0.344.0",
+    "qrcode.react": "^3.1.0",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.3.1",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.2",
+    "vite": "^5.2.0",
+    "zustand": "^4.5.1"
   },
   "devDependencies": {
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "typescript": "latest"
+    "@types/react": "^18.2.61",
+    "@types/react-dom": "^18.2.19",
+    "typescript": "^5.3.3"
   }
 }

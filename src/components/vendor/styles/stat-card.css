@@ -1,0 +1,153 @@
+/* Stat Card Component */
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.stat-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-card__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.stat-card__title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.stat-card__value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.stat-card__value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stat-card__change {
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.stat-card__change--positive {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.stat-card__change--negative {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.stat-card__change--neutral {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.stat-card__progress {
+  height: 4px;
+  background: #e5e7eb;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.stat-card__progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2d5a3d 0%, #16a34a 100%);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+/* Color Variants */
+.stat-card--green .stat-card__icon {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.stat-card--blue .stat-card__icon {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.stat-card--purple .stat-card__icon {
+  background: #f3e8ff;
+  color: #9333ea;
+}
+
+.stat-card--orange .stat-card__icon {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.stat-card--red .stat-card__icon {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stat-card {
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .stat-card__icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .stat-card__value {
+    font-size: 20px;
+  }
+  
+  .stat-card__title {
+    font-size: 12px;
+  }
+  
+  .stat-card__change {
+    font-size: 11px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .stat-card:hover {
+    transform: none;
+  }
+}

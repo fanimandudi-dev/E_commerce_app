@@ -87,6 +87,11 @@ export const demoUser: User = {
   email: 'jean.kouassi@campus.cd', faculty: 'Informatique', role: 'student',
 }
 
+export const demoVendorUser: User = {
+  id: 'vendor-001', name: 'Fresh Corner', firstName: 'Fresh', phone: '+243 970 000 001',
+  email: 'fresh.corner@campus.cd', faculty: 'Informatique', role: 'seller', vendorId: 'fresh-corner',
+}
+
 export const initialNotifications: Notification[] = [
   { id: 'n1', title: 'Commande en préparation', message: 'Campus Kitchen prépare votre commande #FC123456.', type: 'order', time: 'Il y a 2 min', read: false },
   { id: 'n2', title: 'Votre commande est en route', message: 'Campus Kitchen se dirige vers la bibliothèque centrale.', type: 'delivery', time: 'Il y a 10 min', read: false },

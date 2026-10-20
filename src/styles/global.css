@@ -43,6 +43,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .button--primary { background: var(--green); color: white; box-shadow: 0 8px 20px rgba(23,120,59,.16); }
 .button--primary:hover { background: var(--green-dark); }
 .button--outline { background: var(--surface); border-color: var(--line); color: var(--ink); }
+.button--secondary { background: var(--surface); border-color: var(--line); color: var(--ink); }
+.button--secondary:hover { background: var(--green-pale); }
 .button--light { background: white; color: var(--green-dark); }
 .button--block { width: 100%; }
 .button--large { min-height: 52px; border-radius: 14px; font-size: 15px; }
@@ -235,6 +237,12 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .product-card__footer button:disabled { cursor: not-allowed; background: #aeb6b0; opacity: .75; }
 .product-card.is-unavailable .product-card__image { filter: grayscale(.45); opacity: .72; }
 .product-card__unavailable { position: absolute; z-index: 2; inset: auto 10px 10px 10px; padding: 6px 8px; border-radius: 8px; color: #7b3f37; background: rgba(255,240,238,.94); text-align: center; font-size: 8px; font-weight: 800; }
+
+/* Vendor toggle */
+.vendor-toggle { margin: 16px 0; text-align: center; }
+.vendor-toggle .button--small { padding: 8px 16px; font-size: 13px; }
+.vendor-toggle .button--secondary { background: var(--surface); border-color: var(--line); color: var(--ink); }
+.vendor-toggle .button--primary { background: var(--green); color: white; box-shadow: 0 8px 20px rgba(23,120,59,.16); }
 .detail-vendor { display: grid; grid-template-columns: 39px 1fr auto; align-items: center; gap: 10px; max-width: 330px; margin: -4px 0 18px; padding: 9px 11px; border: 1px solid var(--line); border-radius: 13px; background: var(--green-pale); }
 .detail-vendor > span { width: 39px; height: 39px; display: grid; place-items: center; border-radius: 11px; color: white; background: var(--green); font-size: 10px; font-weight: 900; }
 .detail-vendor small,.detail-vendor b { display: block; }

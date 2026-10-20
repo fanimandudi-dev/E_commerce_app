@@ -1,4 +1,5 @@
 export type ProductCategory = 'boissons' | 'snacks' | 'gateaux' | 'repas'
+export type ProductTag = string
 
 export interface VendorSummary {
   id: string
@@ -13,6 +14,10 @@ export interface Vendor extends VendorSummary {
   specialty: string
   image: string
   accentColor: string
+  email?: string
+  phone?: string
+  address?: string
+  createdAt?: string
 }
 
 export interface Product {
@@ -84,4 +89,5 @@ export interface User {
   email: string
   faculty: string
   role: 'student' | 'seller' | 'admin'
+  vendorId?: string
 }

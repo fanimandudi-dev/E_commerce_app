@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Navigate, Outlet, Route, Routes, useLocation } from 'react-router-dom'
 import { AppShell } from '../components/layout/AppShell'
+import { VendorAppShell } from '../components/layout/VendorAppShell'
 import { AuthLayout } from '../components/layout/AuthLayout'
 import { useAuthStore } from '../features/auth/authStore'
 import { useSettingsStore } from '../features/settings/settingsStore'
@@ -18,6 +19,11 @@ import { ProductsPage } from '../pages/ProductsPage'
 import { ProfilePage } from '../pages/ProfilePage'
 import { SettingsPage } from '../pages/SettingsPage'
 import { VendorDetailPage } from '../pages/VendorDetailPage'
+import { VendorDashboard } from '../pages/vendor/VendorDashboard'
+import { ProductsPage as VendorProductsPage } from '../pages/ProductsPage'
+import { OrdersPage as VendorOrdersPage } from '../pages/OrdersPage'
+import { AnalyticsPage } from '../components/vendor/AnalyticsPage'
+import { SettingsPage as VendorSettingsPage } from '../components/vendor/SettingsPage'
 
 function LegacyAppRedirect() {
   const location = useLocation()
@@ -29,6 +35,23 @@ function RequireAuth() {
   const isAuthenticated = useAuthStore(state => state.isAuthenticated)
   const location = useLocation()
   return isAuthenticated ? <Outlet/> : <Navigate to="/login" state={{ from: location.pathname }} replace/>
+}
+
+function RequireVendorAuth() {
+  const isAuthenticated = useAuthStore(state => state.isAuthenticated)
+  const user = useAuthStore(state => state.user)
+  const location = useLocation()
+  
+  if (!isAuthenticated) {
+    return <Navigate to="/login" state={{ from: location.pathname }} replace/>
+  }
+  
+  // Check if user is a vendor (has vendorId)
+  if (!user?.vendorId) {
+    return <Navigate to="/home" replace/>
+  }
+  
+  return <Outlet/>
 }
 
 export default function App() {
@@ -62,6 +85,18 @@ export default function App() {
         <Route path="/profile" element={<ProfilePage/>}/>
         <Route path="/settings" element={<SettingsPage/>}/>
         <Route path="/messages" element={<Navigate to="/profile" replace/>}/>
+      </Route>
+
+      {/* Vendor Routes */}
+      <Route path="/vendor" element={<RequireVendorAuth />}>  
+        <Route element={<VendorAppShell/>}>
+          <Route path="dashboard" element={<VendorDashboard/>}/>
+          <Route path="products" element={<VendorProductsPage/>}/>
+          <Route path="orders" element={<VendorOrdersPage/>}/>
+          <Route path="analytics" element={<AnalyticsPage/>}/>
+          <Route path="settings" element={<VendorSettingsPage/>}/>
+          <Route path="" element={<Navigate to="dashboard" replace/>}/>
+        </Route>
       </Route>
     </Route>
 

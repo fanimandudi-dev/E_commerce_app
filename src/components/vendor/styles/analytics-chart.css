@@ -1,0 +1,304 @@
+/* Analytics Chart Component Styles */
+.analytics-chart {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  font-family: var(--font-family);
+}
+
+/* Header */
+.analytics-chart__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .analytics-chart__header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.analytics-chart__title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+}
+
+.analytics-chart__controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .analytics-chart__controls {
+    flex-direction: row;
+    gap: var(--spacing-lg);
+    align-items: center;
+  }
+}
+
+/* Time Selector */
+.analytics-chart__time-selector {
+  display: flex;
+  gap: var(--spacing-xs);
+  background: var(--bg-secondary);
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-full);
+}
+
+.analytics-chart__time-button {
+  padding: var(--spacing-xs) var(--spacing-md);
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.analytics-chart__time-button:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.analytics-chart__time-button--active {
+  color: var(--primary);
+  background: var(--bg-primary-light);
+}
+
+/* Chart Selector */
+.analytics-chart__chart-selector {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.analytics-chart__chart-button {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border-light);
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.analytics-chart__chart-button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--bg-primary-light);
+}
+
+.analytics-chart__chart-button--active {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--bg-primary-light);
+}
+
+.analytics-chart__chart-button svg {
+  flex-shrink: 0;
+}
+
+/* Stats Overview */
+.analytics-chart__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .analytics-chart__stats {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+  }
+}
+
+.analytics-chart__stat {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.analytics-chart__stat:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.analytics-chart__stat-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.analytics-chart__stat-icon--sales {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--primary);
+}
+
+.analytics-chart__stat-icon--revenue {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+}
+
+.analytics-chart__stat-icon--products {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--info);
+}
+
+.analytics-chart__stat-icon--top {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning);
+}
+
+.analytics-chart__stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.analytics-chart__stat-value {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.analytics-chart__stat-label {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Chart Container */
+.analytics-chart__container {
+  width: 100%;
+  height: 300px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.analytics-chart__chart-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.analytics-chart__chart-wrapper--doughnut {
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  .analytics-chart__title {
+    font-size: var(--text-xl);
+  }
+
+  .analytics-chart__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .analytics-chart__stat {
+    padding: var(--spacing-sm);
+  }
+
+  .analytics-chart__stat-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .analytics-chart__stat-value {
+    font-size: var(--text-lg);
+  }
+
+  .analytics-chart__container {
+    height: 250px;
+    padding: var(--spacing-md);
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .analytics-chart__time-selector {
+    background: var(--bg-tertiary);
+  }
+
+  .analytics-chart__time-button--active {
+    background: var(--bg-primary-light);
+  }
+
+  .analytics-chart__chart-button {
+    border-color: var(--border-dark);
+    background: var(--bg-tertiary);
+  }
+
+  .analytics-chart__stat {
+    background: var(--bg-tertiary);
+  }
+
+  .analytics-chart__container {
+    background: var(--bg-tertiary);
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.analytics-chart {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Focus States */
+.analytics-chart__time-button:focus,
+.analytics-chart__chart-button:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .analytics-chart {
+    animation: none;
+  }
+
+  .analytics-chart__stat:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
