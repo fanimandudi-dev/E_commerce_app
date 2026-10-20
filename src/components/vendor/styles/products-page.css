@@ -1,0 +1,229 @@
+/* Vendor Products Page Styles */
+.vendor-products-page {
+  background: #f8fafc;
+  min-height: calc(100vh - 60px);
+}
+
+.vendor-products-page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 24px;
+}
+
+.vendor-products-page__title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.vendor-products-page__subtitle {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 4px 0 0 0;
+}
+
+.vendor-products-page__actions {
+  display: flex;
+  gap: 12px;
+}
+
+.vendor-products-page__add-button {
+  padding: 10px 20px;
+  background: #16a34a;
+  color: white;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.vendor-products-page__add-button:hover {
+  background: #166534;
+}
+
+.vendor-products-page__filter {
+  padding: 10px 16px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #374151;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.vendor-products-page__filter:hover {
+  border-color: #2563eb;
+}
+
+.vendor-products-page__filter--active {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.vendor-products-page__content {
+  padding: 0 24px 24px 24px;
+}
+
+.vendor-products-page__tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.vendor-products-page__tab {
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.vendor-products-page__tab:hover {
+  color: #1f2937;
+}
+
+.vendor-products-page__tab--active {
+  color: #16a34a;
+  border-bottom-color: #16a34a;
+}
+
+.vendor-products-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.vendor-products-page__list {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.vendor-products-page__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.vendor-products-page__empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6b7280;
+}
+
+.vendor-products-page__empty-icon {
+  width: 48px;
+  height: 48px;
+  color: #d1d5db;
+  margin: 0 auto 12px auto;
+}
+
+.vendor-products-page__empty-message {
+  font-size: 14px;
+  margin: 0 0 8px 0;
+}
+
+.vendor-products-page__empty-submessage {
+  font-size: 12px;
+  margin: 0;
+}
+
+.vendor-products-page__pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.vendor-products-page__page-button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #374151;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.vendor-products-page__page-button:hover:not(:disabled) {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.vendor-products-page__page-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.vendor-products-page__page-button--active {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+@media (max-width: 768px) {
+  .vendor-products-page__header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+    padding: 0 16px;
+  }
+  
+  .vendor-products-page__title {
+    font-size: 18px;
+  }
+  
+  .vendor-products-page__actions {
+    flex-direction: column;
+  }
+  
+  .vendor-products-page__add-button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .vendor-products-page__content {
+    padding: 0 16px 16px 16px;
+  }
+  
+  .vendor-products-page__tabs {
+    padding-left: 16px;
+  }
+  
+  .vendor-products-page__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .vendor-products-page__pagination {
+    flex-wrap: wrap;
+  }
+}

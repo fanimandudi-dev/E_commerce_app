@@ -1,0 +1,119 @@
+/* Vendor Sidebar Styles */
+.vendor-sidebar {
+  padding: 24px 0;
+}
+
+.vendor-sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 24px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 16px;
+}
+
+.vendor-sidebar__brand-logo {
+  width: 40px;
+  height: 40px;
+  background: #2563eb;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.vendor-sidebar__brand-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.vendor-sidebar__nav {
+  padding: 0 12px;
+}
+
+.vendor-sidebar__nav-item {
+  margin-bottom: 4px;
+}
+
+.vendor-sidebar__nav-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.vendor-sidebar__nav-button:hover {
+  background: #f3f4f6;
+}
+
+.vendor-sidebar__nav-button--active {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.vendor-sidebar__nav-button--active svg {
+  color: #2563eb;
+}
+
+.vendor-sidebar__nav-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.vendor-sidebar__nav-label {
+  flex: 1;
+}
+
+.vendor-sidebar__user {
+  margin-top: auto;
+  padding: 16px 24px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.vendor-sidebar__user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vendor-sidebar__user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.vendor-sidebar__user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.vendor-sidebar__user-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.vendor-sidebar__user-email {
+  font-size: 12px;
+  color: #6b7280;
+}

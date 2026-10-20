@@ -1,0 +1,354 @@
+/* Orders Table Styles */
+.orders-table {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.orders-table__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.orders-table__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.orders-table__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.orders-table__action-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.orders-table__action-button:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.orders-table__filters {
+  display: flex;
+  gap: 16px;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  flex-wrap: wrap;
+}
+
+.orders-table__filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.orders-table__filter-label {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.orders-table__filter-select {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 13px;
+  background: white;
+}
+
+.orders-table__filter-input {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.orders-table__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table__thead {
+  background: #f9fafb;
+}
+
+.orders-table__th {
+  padding: 12px 24px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.orders-table__tbody {
+}
+
+.orders-table__tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.2s ease;
+}
+
+.orders-table__tr:hover {
+  background: #f9fafb;
+}
+
+.orders-table__td {
+  padding: 16px 24px;
+  font-size: 13px;
+  color: #374151;
+}
+
+.orders-table__order-id {
+  font-weight: 500;
+  color: #2563eb;
+  cursor: pointer;
+}
+
+.orders-table__customer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.orders-table__customer-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.orders-table__customer-name {
+  font-weight: 500;
+}
+
+.orders-table__items-count {
+  color: #6b7280;
+}
+
+.orders-table__status {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.orders-table__status--pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.orders-table__status--preparing {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.orders-table__status--ready {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.orders-table__status--completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.orders-table__status--cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.orders-table__total {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.orders-table__date {
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.orders-table__actions-cell {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.orders-table__action {
+  padding: 6px 12px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.orders-table__action:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.orders-table__action--view {
+  color: #2563eb;
+}
+
+.orders-table__action--view:hover {
+  background: #eff6ff;
+  border-color: #2563eb;
+}
+
+.orders-table__action--accept {
+  color: #166534;
+}
+
+.orders-table__action--accept:hover {
+  background: #dcfce7;
+  border-color: #166534;
+}
+
+.orders-table__action--reject {
+  color: #991b1b;
+}
+
+.orders-table__action--reject:hover {
+  background: #fee2e2;
+  border-color: #991b1b;
+}
+
+.orders-table__pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.orders-table__pagination-info {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.orders-table__pagination-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.orders-table__pagination-button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #374151;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.orders-table__pagination-button:hover:not(:disabled) {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.orders-table__pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.orders-table__pagination-button--active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: white;
+}
+
+.orders-table__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.orders-table__empty svg {
+  width: 48px;
+  height: 48px;
+  color: #d1d5db;
+  margin-bottom: 16px;
+}
+
+.orders-table__empty-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 8px 0;
+}
+
+.orders-table__empty-description {
+  font-size: 13px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .orders-table__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .orders-table__filters {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .orders-table__filter {
+    width: 100%;
+  }
+  
+  .orders-table__filter-select,
+  .orders-table__filter-input {
+    flex: 1;
+  }
+  
+  .orders-table__th,
+  .orders-table__td {
+    padding: 12px 16px;
+  }
+  
+  .orders-table__pagination {
+    flex-direction: column;
+    gap: 16px;
+  }
+}

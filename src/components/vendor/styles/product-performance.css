@@ -1,218 +1,195 @@
-/* Product Performance Component */
+/* Product Performance Component Styles */
 .product-performance {
-  display: grid;
-  grid-template-columns: 32px 48px 1fr 80px 60px 80px;
-  align-items: center;
-  gap: 12px;
-  padding: 12px;
   background: white;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
-  transition: all 0.2s ease;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.product-performance:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.product-performance__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.product-performance__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
 }
 
 .product-performance__rank {
   width: 28px;
   height: 28px;
-  background: #f3f4f6;
-  border-radius: 6px;
+  border-radius: 50%;
+  background: #eff6ff;
+  color: #2563eb;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 12px;
   font-weight: 600;
-  color: #6b7280;
+}
+
+.product-performance__rank--top {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.product-performance__rank--bottom {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.product-performance__content {
+  display: flex;
+  gap: 16px;
 }
 
 .product-performance__image {
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   border-radius: 8px;
-  overflow: hidden;
+  object-fit: cover;
+  background: #f3f4f6;
   flex-shrink: 0;
 }
 
-.product-performance__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.product-performance__placeholder {
-  width: 100%;
-  height: 100%;
-  background: #2d5a3d;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  font-size: 14px;
-}
-
 .product-performance__info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  flex: 1;
+  min-width: 0;
 }
 
 .product-performance__name {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 500;
   color: #1f2937;
+  margin: 0 0 4px 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .product-performance__category {
-  font-size: 12px;
+  font-size: 11px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.product-performance__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.product-performance__stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
   color: #6b7280;
 }
 
-.product-performance__sales {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-
-.product-performance__sales-count {
-  font-size: 16px;
-  font-weight: 700;
+.product-performance__stat-value {
+  font-weight: 600;
   color: #1f2937;
 }
 
-.product-performance__sales-label {
-  font-size: 11px;
-  color: #9ca3af;
+.product-performance__stat--sales {
+  color: #166534;
 }
 
-.product-performance__trend {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
+.product-performance__stat--revenue {
+  color: #2563eb;
+}
+
+.product-performance__progress {
+  width: 100%;
+  height: 4px;
+  background: #e5e7eb;
+  border-radius: 2px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.product-performance__progress-bar {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.product-performance__progress-bar--high {
+  background: #16a34a;
+}
+
+.product-performance__progress-bar--medium {
+  background: #84cc16;
+}
+
+.product-performance__progress-bar--low {
+  background: #f97316;
+}
+
+.product-performance__compact {
+  padding: 16px;
+}
+
+.product-performance__compact .product-performance__image {
+  width: 40px;
+  height: 40px;
+}
+
+.product-performance__compact .product-performance__name {
   font-size: 12px;
-  font-weight: 600;
-  padding: 4px 8px;
-  border-radius: 4px;
 }
 
-.product-performance--positive {
-  background: #dcfce7;
-  color: #16a34a;
+.product-performance__compact .product-performance__rank {
+  width: 24px;
+  height: 24px;
+  font-size: 10px;
 }
 
-.product-performance--negative {
-  background: #fee2e2;
-  color: #dc2626;
+.product-performance__horizontal {
+  flex-direction: row;
+  align-items: center;
 }
 
-.product-performance--neutral {
-  background: #f3f4f6;
-  color: #6b7280;
+.product-performance__horizontal .product-performance__content {
+  flex-direction: row;
+  align-items: center;
 }
 
-.product-performance__price {
-  font-size: 14px;
-  font-weight: 600;
-  color: #2d5a3d;
-  text-align: right;
+.product-performance__horizontal .product-performance__stats {
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .product-performance {
-    grid-template-columns: 32px 40px 1fr 60px 50px 60px;
-    gap: 8px;
-    padding: 8px;
-  }
-  
-  .product-performance__image {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .product-performance__name {
-    font-size: 13px;
-  }
-  
-  .product-performance__sales-count {
-    font-size: 14px;
-  }
+.product-performance__horizontal .product-performance__progress {
+  width: 80px;
+  margin-top: 0;
 }
 
 @media (max-width: 768px) {
   .product-performance {
-    grid-template-columns: 28px 1fr;
-    grid-template-areas: 
-      "rank name"
-      "image name"
-      "sales trend"
-      "price price";
+    padding: 16px;
   }
   
-  .product-performance__rank {
-    grid-area: rank;
-    justify-self: start;
+  .product-performance__content {
+    flex-direction: column;
+    gap: 12px;
   }
   
-  .product-performance__image {
-    grid-area: image;
-    justify-self: start;
+  .product-performance__stats {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
   }
   
-  .product-performance__info {
-    grid-area: name;
-  }
-  
-  .product-performance__sales {
-    grid-area: sales;
-    justify-self: start;
-  }
-  
-  .product-performance__trend {
-    grid-area: trend;
-    justify-self: start;
-  }
-  
-  .product-performance__price {
-    grid-area: price;
-    justify-self: end;
-  }
-  
-  .product-performance__image {
-    width: 36px;
-    height: 36px;
-  }
-  
-  .product-performance__rank {
-    width: 24px;
-    height: 24px;
-    font-size: 11px;
-  }
-  
-  .product-performance__name {
-    font-size: 13px;
-  }
-  
-  .product-performance__sales-count {
-    font-size: 13px;
-  }
-  
-  .product-performance__trend {
-    font-size: 11px;
-    padding: 2px 6px;
-  }
-  
-  .product-performance__price {
-    font-size: 13px;
+  .product-performance__progress {
+    margin-top: 8px;
   }
 }

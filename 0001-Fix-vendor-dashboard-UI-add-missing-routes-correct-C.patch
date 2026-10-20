@@ -1,0 +1,907 @@
+From 5b275d7352394eb4a32044c50930b72d394c20f5 Mon Sep 17 00:00:00 2001
+From: fanimandudi-dev <fanimandudi-dev@users.noreply.github.com>
+Date: Tue, 20 Oct 2026 02:38:15 +0000
+Subject: [PATCH] Fix vendor dashboard UI: add missing routes, correct CSS
+ class names, improve responsive design
+
+- Added missing vendor routes: /vendor/deliveries and /vendor/notifications
+- Fixed VendorSidebar.tsx: corrected CSS class names to match vendor-shell.css
+- Fixed VendorHeader.tsx: removed non-existent route references, improved tooltip styling
+- Updated vendor-shell.css: aligned styles with component class names, improved responsive design and animations
+---
+ src/app/App.tsx                               |   4 +
+ src/components/vendor/VendorHeader.tsx        |  14 +-
+ src/components/vendor/VendorSidebar.tsx       |  21 +-
+ src/components/vendor/styles/vendor-shell.css | 445 +++++++++++++-----
+ 4 files changed, 354 insertions(+), 130 deletions(-)
+
+diff --git a/src/app/App.tsx b/src/app/App.tsx
+index 19b9ca3..e8003ab 100644
+--- a/src/app/App.tsx
++++ b/src/app/App.tsx
+@@ -92,9 +92,13 @@ export default function App() {
+         <Route element={<VendorAppShell/>}>
+           <Route path="dashboard" element={<VendorDashboard/>}/>
+           <Route path="products" element={<VendorProductsPage/>}/>
++          <Route path="products/new" element={<VendorProductsPage/>}/>
+           <Route path="orders" element={<VendorOrdersPage/>}/>
++          <Route path="orders/new" element={<VendorOrdersPage/>}/>
++          <Route path="deliveries" element={<div>Livraisons - À implémenter</div>}/>
+           <Route path="analytics" element={<AnalyticsPage/>}/>
+           <Route path="settings" element={<VendorSettingsPage/>}/>
++          <Route path="notifications" element={<div>Notifications - À implémenter</div>}/>
+           <Route path="" element={<Navigate to="dashboard" replace/>}/>
+         </Route>
+       </Route>
+diff --git a/src/components/vendor/VendorHeader.tsx b/src/components/vendor/VendorHeader.tsx
+index 88897cd..ac4ea35 100644
+--- a/src/components/vendor/VendorHeader.tsx
++++ b/src/components/vendor/VendorHeader.tsx
+@@ -11,7 +11,7 @@ export function VendorHeader() {
+   // Extraire le titre de la page à partir du pathname
+   const getPageTitle = () => {
+     const path = location.pathname
+-    if (path === '/vendor') return 'Tableau de bord'
++    if (path === '/vendor' || path === '/vendor/dashboard') return 'Tableau de bord'
+     if (path.startsWith('/vendor/products')) return 'Produits'
+     if (path.startsWith('/vendor/orders')) return 'Commandes'
+     if (path.startsWith('/vendor/deliveries')) return 'Livraisons'
+@@ -34,31 +34,35 @@ export function VendorHeader() {
+       </div>
+ 
+       <div className="vendor-header__right">
++        {/* Search - Hidden on mobile */}
+         <div className="vendor-header__search">
+           <Search size={18} />
+           <input 
+             type="text" 
+-            placeholder="Rechercher..." 
++            placeholder="Rechercher dans la boutique..." 
+             className="vendor-search-input"
+           />
+         </div>
+         
+-        <Link to="/vendor/orders" className="vendor-header__action" aria-label="Scanner QR">
++        {/* QR Scanner */}
++        <Link to="/vendor/orders" className="vendor-header__action" aria-label="Scanner QR Code">
+           <QrCode size={20} />
+           <span className="vendor-action-tooltip">Scanner QR</span>
+         </Link>
+         
++        {/* Notifications */}
+         <Link to="/vendor/notifications" className="vendor-header__action" aria-label="Notifications">
+           <Bell size={20} />
+           <span className="notification-badge">3</span>
+         </Link>
+         
++        {/* User Menu */}
+         <div className="vendor-header__user">
+           <div className="vendor-user-avatar">
+-            {user?.firstName.charAt(0) ?? 'V'}
++            {(user?.firstName || user?.name || 'V').charAt(0).toUpperCase()}
+           </div>
+           <div className="vendor-user-info">
+-            <span className="vendor-user-name">{user?.name ?? 'Vendeur'}</span>
++            <span className="vendor-user-name">{user?.name || user?.firstName || 'Vendeur'}</span>
+             <span className="vendor-user-role">Vendeur</span>
+           </div>
+         </div>
+diff --git a/src/components/vendor/VendorSidebar.tsx b/src/components/vendor/VendorSidebar.tsx
+index 4f2b2a3..c0b01be 100644
+--- a/src/components/vendor/VendorSidebar.tsx
++++ b/src/components/vendor/VendorSidebar.tsx
+@@ -18,7 +18,7 @@ const navItems = [
+     to: '/vendor',
+     label: 'Tableau de bord',
+     icon: LayoutDashboard,
+-    matches: ['/vendor'],
++    matches: ['/vendor', '/vendor/dashboard'],
+   },
+   {
+     to: '/vendor/products',
+@@ -68,6 +68,7 @@ export function VendorSidebar() {
+ 
+   return (
+     <aside className="vendor-sidebar">
++      {/* Brand Section */}
+       <div className="vendor-sidebar__header">
+         <div className="vendor-brand">
+           <span className="vendor-brand__initials">
+@@ -82,6 +83,7 @@ export function VendorSidebar() {
+         </div>
+       </div>
+ 
++      {/* Main Navigation */}
+       <nav className="vendor-sidebar__nav" aria-label="Navigation vendeur">
+         <ul className="vendor-nav-list">
+           {navItems.map((item) => {
+@@ -95,14 +97,14 @@ export function VendorSidebar() {
+             )
+ 
+             return (
+-              <li key={item.to} className="vendor-nav-item">
++              <li key={item.to} className="vendor-nav-item-wrapper">
+                 <Link 
+                   to={item.to} 
+-                  className={`vendor-nav-link ${active || childrenActive ? 'active' : ''}`}
++                  className={`vendor-nav-item ${active || childrenActive ? 'active' : ''}`}
+                   aria-current={active || childrenActive ? 'page' : undefined}
+                 >
+-                  <item.icon size={18} />
+-                  <span>{item.label}</span>
++                  <item.icon size={18} className="vendor-nav-item__icon" />
++                  <span className="vendor-nav-item__label">{item.label}</span>
+                   {hasChildren && (
+                     <span className="vendor-nav-chevron">▼</span>
+                   )}
+@@ -113,13 +115,13 @@ export function VendorSidebar() {
+                       const childActive = location.pathname === child.to || 
+                         location.pathname.startsWith(`${child.to}/`)
+                       return (
+-                        <li key={child.to} className="vendor-nav-subitem">
++                        <li key={child.to} className="vendor-nav-subitem-wrapper">
+                           <Link 
+                             to={child.to}
+-                            className={`vendor-nav-sublink ${childActive ? 'active' : ''}`}
++                            className={`vendor-nav-subitem ${childActive ? 'active' : ''}`}
+                           >
+-                            <child.icon size={16} />
+-                            <span>{child.label}</span>
++                            <child.icon size={16} className="vendor-nav-subitem__icon" />
++                            <span className="vendor-nav-subitem__label">{child.label}</span>
+                           </Link>
+                         </li>
+                       )
+@@ -132,6 +134,7 @@ export function VendorSidebar() {
+         </ul>
+       </nav>
+ 
++      {/* Footer */}
+       <div className="vendor-sidebar__footer">
+         <Link to="/home" className="vendor-footer-link">
+           ← Retour à l'espace étudiant
+diff --git a/src/components/vendor/styles/vendor-shell.css b/src/components/vendor/styles/vendor-shell.css
+index 8dc321e..04e1ec6 100644
+--- a/src/components/vendor/styles/vendor-shell.css
++++ b/src/components/vendor/styles/vendor-shell.css
+@@ -1,11 +1,14 @@
+-/* Vendor Shell Layout */
++/* Vendor Shell Layout - Food Campus Theme */
++/* Colors: Primary Green #2d5a3d, Secondary #1b3d2b */
++
++/* ==================== VENDOR SHELL ==================== */
+ .vendor-shell {
+   display: flex;
+   min-height: 100vh;
+   background-color: #f8f9fa;
+ }
+ 
+-/* Sidebar Styles */
++/* ==================== SIDEBAR ==================== */
+ .vendor-sidebar {
+   width: 280px;
+   min-width: 280px;
+@@ -17,78 +20,90 @@
+   height: 100vh;
+   overflow-y: auto;
+   z-index: 1000;
++  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+ }
+ 
++/* Sidebar Header / Brand */
+ .vendor-sidebar__header {
+   padding: 24px;
+   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
++}
++
++.vendor-brand {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+ }
+ 
+-.vendor-sidebar__logo {
+-  width: 40px;
+-  height: 40px;
++.vendor-brand__initials {
++  width: 44px;
++  height: 44px;
+   background: white;
+-  border-radius: 8px;
++  border-radius: 10px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+-  font-weight: bold;
++  font-weight: 700;
+   color: #2d5a3d;
+   font-size: 18px;
++  flex-shrink: 0;
+ }
+ 
+-.vendor-sidebar__title {
+-  font-size: 18px;
++.vendor-brand__info {
++  display: flex;
++  flex-direction: column;
++}
++
++.vendor-brand__info h3 {
++  font-size: 16px;
+   font-weight: 600;
+   color: white;
++  margin: 0;
++  line-height: 1.3;
+ }
+ 
+-.vendor-sidebar__subtitle {
++.vendor-brand__specialty {
+   font-size: 12px;
+-  color: rgba(255, 255, 255, 0.7);
++  color: rgba(255, 255, 255, 0.6);
+ }
+ 
++/* Sidebar Navigation */
+ .vendor-sidebar__nav {
+   flex: 1;
+   padding: 16px 0;
+ }
+ 
+-.vendor-nav-section {
+-  margin-bottom: 8px;
++.vendor-nav-list {
++  list-style: none;
++  margin: 0;
++  padding: 0;
+ }
+ 
+-.vendor-nav-section__title {
+-  padding: 0 24px;
+-  font-size: 11px;
+-  font-weight: 600;
+-  text-transform: uppercase;
+-  letter-spacing: 0.5px;
+-  color: rgba(255, 255, 255, 0.4);
+-  margin-bottom: 8px;
++.vendor-nav-item-wrapper {
++  position: relative;
+ }
+ 
+ .vendor-nav-item {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+-  padding: 12px 24px;
+-  color: rgba(255, 255, 255, 0.7);
++  padding: 14px 24px;
++  color: rgba(255, 255, 255, 0.75);
+   text-decoration: none;
+   transition: all 0.2s ease;
+   cursor: pointer;
+-  border-left: 3px solid transparent;
++  border-left: 4px solid transparent;
++  font-size: 14px;
++  font-weight: 500;
+ }
+ 
+ .vendor-nav-item:hover {
+-  background: rgba(255, 255, 255, 0.05);
++  background: rgba(255, 255, 255, 0.08);
+   color: white;
+ }
+ 
+ .vendor-nav-item.active {
+-  background: rgba(255, 255, 255, 0.1);
++  background: rgba(255, 255, 255, 0.15);
+   color: white;
+   border-left-color: #4ade80;
+ }
+@@ -96,42 +111,101 @@
+ .vendor-nav-item__icon {
+   width: 20px;
+   height: 20px;
++  flex-shrink: 0;
+ }
+ 
+ .vendor-nav-item__label {
+-  font-size: 14px;
+-  font-weight: 500;
++  flex: 1;
++  white-space: nowrap;
+ }
+ 
+-.vendor-nav-item__badge {
++.vendor-nav-chevron {
++  font-size: 12px;
++  color: rgba(255, 255, 255, 0.5);
++  transition: transform 0.2s ease;
+   margin-left: auto;
+-  background: #ef4444;
+-  color: white;
+-  font-size: 11px;
+-  padding: 2px 8px;
+-  border-radius: 10px;
+-  font-weight: 500;
+ }
+ 
+-/* Collapse Button */
+-.vendor-sidebar__collapse {
+-  padding: 16px 24px;
++.vendor-nav-item.active .vendor-nav-chevron,
++.vendor-nav-item:hover .vendor-nav-chevron {
++  color: rgba(255, 255, 255, 0.8);
++}
++
++/* Sub Navigation */
++.vendor-nav-sublist {
++  list-style: none;
++  margin: 0;
++  padding: 8px 0;
++  background: rgba(0, 0, 0, 0.05);
++  border-left: 4px solid #4ade80;
++  margin-left: 12px;
++  margin-right: 12px;
++  border-radius: 0 6px 6px 0;
++}
++
++.vendor-nav-subitem-wrapper {
++  position: relative;
++}
++
++.vendor-nav-subitem {
+   display: flex;
+   align-items: center;
+-  justify-content: center;
+-  color: rgba(255, 255, 255, 0.5);
+-  cursor: pointer;
++  gap: 12px;
++  padding: 10px 24px;
++  color: rgba(255, 255, 255, 0.7);
++  text-decoration: none;
+   transition: all 0.2s ease;
+-  margin-top: auto;
++  cursor: pointer;
++  font-size: 13px;
++  font-weight: 500;
++  border-left: 4px solid transparent;
++}
++
++.vendor-nav-subitem:hover {
++  background: rgba(255, 255, 255, 0.1);
++  color: white;
++}
++
++.vendor-nav-subitem.active {
++  background: rgba(255, 255, 255, 0.2);
++  color: white;
++  border-left-color: #4ade80;
++}
++
++.vendor-nav-subitem__icon {
++  width: 18px;
++  height: 18px;
++  flex-shrink: 0;
++}
++
++.vendor-nav-subitem__label {
++  white-space: nowrap;
++}
++
++/* Sidebar Footer */
++.vendor-sidebar__footer {
++  padding: 20px 24px;
+   border-top: 1px solid rgba(255, 255, 255, 0.1);
++  margin-top: auto;
++}
++
++.vendor-footer-link {
++  display: flex;
++  align-items: center;
++  gap: 8px;
++  color: rgba(255, 255, 255, 0.6);
++  text-decoration: none;
++  font-size: 13px;
++  font-weight: 500;
++  transition: all 0.2s ease;
+ }
+ 
+-.vendor-sidebar__collapse:hover {
++.vendor-footer-link:hover {
+   color: white;
+-  background: rgba(255, 255, 255, 0.05);
++  text-decoration: underline;
+ }
+ 
+-/* Main Content Area */
++/* ==================== MAIN CONTENT AREA ==================== */
+ .vendor-main {
+   flex: 1;
+   margin-left: 280px;
+@@ -140,7 +214,7 @@
+   flex-direction: column;
+ }
+ 
+-/* Header Styles */
++/* ==================== HEADER ==================== */
+ .vendor-header {
+   background: white;
+   border-bottom: 1px solid #e5e7eb;
+@@ -149,7 +223,10 @@
+   align-items: center;
+   justify-content: space-between;
+   height: 70px;
+-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
++  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
++  position: sticky;
++  top: 0;
++  z-index: 100;
+ }
+ 
+ .vendor-header__left {
+@@ -158,19 +235,29 @@
+   gap: 16px;
+ }
+ 
++.vendor-header__title {
++  display: flex;
++  flex-direction: column;
++}
++
+ .vendor-header__title h1 {
+   font-size: 20px;
+-  font-weight: 600;
++  font-weight: 700;
+   color: #1f2937;
+   margin: 0;
++  line-height: 1.3;
+ }
+ 
+ .vendor-header__subtitle {
+   font-size: 12px;
+   color: #6b7280;
+-  background: #f3f4f6;
++  background: #f0fdf4;
++  color: #16a34a;
+   padding: 4px 12px;
+   border-radius: 20px;
++  font-weight: 500;
++  text-transform: uppercase;
++  letter-spacing: 0.5px;
+ }
+ 
+ .vendor-header__right {
+@@ -179,18 +266,27 @@
+   gap: 16px;
+ }
+ 
++/* Search */
+ .vendor-header__search {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+-  background: #f3f4f6;
+-  padding: 8px 16px;
++  background: #f8f9fa;
++  padding: 10px 16px;
+   border-radius: 8px;
+   min-width: 280px;
++  border: 1px solid #e5e7eb;
++  transition: all 0.2s ease;
++}
++
++.vendor-header__search:focus-within {
++  border-color: #2d5a3d;
++  box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.1);
+ }
+ 
+ .vendor-header__search svg {
+   color: #6b7280;
++  flex-shrink: 0;
+ }
+ 
+ .vendor-search-input {
+@@ -206,51 +302,61 @@
+   color: #9ca3af;
+ }
+ 
++/* Header Actions */
+ .vendor-header__action {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+-  width: 40px;
+-  height: 40px;
+-  border-radius: 8px;
++  width: 42px;
++  height: 42px;
++  border-radius: 10px;
+   color: #6b7280;
+   cursor: pointer;
+   transition: all 0.2s ease;
++  background: transparent;
+ }
+ 
+ .vendor-header__action:hover {
+-  background: #f3f4f6;
+-  color: #1f2937;
++  background: #f8f9fa;
++  color: #2d5a3d;
++}
++
++.vendor-header__action svg {
++  width: 20px;
++  height: 20px;
+ }
+ 
+ .notification-badge {
+   position: absolute;
+-  top: 6px;
+-  right: 6px;
++  top: 8px;
++  right: 8px;
+   background: #ef4444;
+   color: white;
+   font-size: 10px;
+   font-weight: 600;
+   padding: 2px 6px;
+   border-radius: 10px;
++  min-width: 18px;
++  text-align: center;
+ }
+ 
+ .vendor-action-tooltip {
+   position: absolute;
+-  bottom: -32px;
++  bottom: -36px;
+   left: 50%;
+   transform: translateX(-50%);
+   background: #374151;
+   color: white;
+   font-size: 11px;
+-  padding: 4px 12px;
+-  border-radius: 4px;
++  padding: 6px 12px;
++  border-radius: 6px;
+   white-space: nowrap;
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.2s ease;
+   z-index: 100;
++  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+ }
+ 
+ .vendor-header__action:hover .vendor-action-tooltip {
+@@ -258,24 +364,26 @@
+   visibility: visible;
+ }
+ 
++/* User Menu */
+ .vendor-header__user {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+   padding: 8px 16px;
+-  border-radius: 8px;
++  border-radius: 10px;
+   cursor: pointer;
+   transition: all 0.2s ease;
++  background: transparent;
+ }
+ 
+ .vendor-header__user:hover {
+-  background: #f3f4f6;
++  background: #f8f9fa;
+ }
+ 
+ .vendor-user-avatar {
+-  width: 36px;
+-  height: 36px;
+-  background: #2d5a3d;
++  width: 38px;
++  height: 38px;
++  background: linear-gradient(135deg, #2d5a3d, #1b3d2b);
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+@@ -283,6 +391,7 @@
+   color: white;
+   font-weight: 600;
+   font-size: 14px;
++  flex-shrink: 0;
+ }
+ 
+ .vendor-user-info {
+@@ -291,17 +400,17 @@
+ }
+ 
+ .vendor-user-name {
+-  font-size: 13px;
++  font-size: 14px;
+   font-weight: 600;
+   color: #1f2937;
+ }
+ 
+ .vendor-user-role {
+-  font-size: 11px;
++  font-size: 12px;
+   color: #6b7280;
+ }
+ 
+-/* Content Area */
++/* ==================== CONTENT AREA ==================== */
+ .vendor-content {
+   flex: 1;
+   padding: 32px;
+@@ -309,15 +418,56 @@
+   overflow-y: auto;
+ }
+ 
+-/* Responsive Styles */
+-@media (max-width: 1024px) {
++/* ==================== SCROLLBAR STYLING ==================== */
++.vendor-sidebar::-webkit-scrollbar {
++  width: 6px;
++}
++
++.vendor-sidebar::-webkit-scrollbar-track {
++  background: transparent;
++}
++
++.vendor-sidebar::-webkit-scrollbar-thumb {
++  background: rgba(255, 255, 255, 0.2);
++  border-radius: 3px;
++}
++
++.vendor-sidebar::-webkit-scrollbar-thumb:hover {
++  background: rgba(255, 255, 255, 0.3);
++}
++
++/* ==================== FOCUS STATES ==================== */
++.vendor-nav-item:focus,
++.vendor-nav-subitem:focus,
++.vendor-header__action:focus,
++.vendor-header__user:focus,
++.vendor-search-input:focus {
++  outline: 2px solid #4ade80;
++  outline-offset: 2px;
++}
++
++/* ==================== REDUCED MOTION ==================== */
++@media (prefers-reduced-motion: reduce) {
++  *,
++  *::before,
++  *::after {
++    animation-duration: 0.01ms !important;
++    animation-iteration-count: 1 !important;
++    transition-duration: 0.01ms !important;
++  }
++}
++
++/* ==================== RESPONSIVE ==================== */
++
++/* Tablet */
++@media (max-width: 1200px) {
+   .vendor-sidebar {
+-    width: 240px;
+-    min-width: 240px;
++    width: 250px;
++    min-width: 250px;
+   }
+   
+   .vendor-main {
+-    margin-left: 240px;
++    margin-left: 250px;
+   }
+   
+   .vendor-header {
+@@ -325,15 +475,26 @@
+   }
+   
+   .vendor-header__search {
+-    min-width: 200px;
++    min-width: 240px;
+   }
+   
+   .vendor-content {
+-    padding: 24px;
++    padding: 28px;
++  }
++  
++  .vendor-nav-item {
++    padding: 12px 20px;
++    font-size: 13px;
++  }
++  
++  .vendor-nav-subitem {
++    padding: 8px 20px;
++    font-size: 12px;
+   }
+ }
+ 
+-@media (max-width: 768px) {
++/* Mobile */
++@media (max-width: 1024px) {
+   .vendor-shell {
+     flex-direction: column;
+   }
+@@ -343,6 +504,8 @@
+     height: auto;
+     position: relative;
+     min-width: 0;
++    box-shadow: none;
++    border-bottom: 1px solid #e5e7eb;
+   }
+   
+   .vendor-main {
+@@ -352,6 +515,7 @@
+   
+   .vendor-header {
+     padding: 12px 16px;
++    height: 60px;
+   }
+   
+   .vendor-header__title h1 {
+@@ -367,71 +531,120 @@
+   }
+   
+   .vendor-content {
+-    padding: 16px;
++    padding: 20px 16px;
+   }
+   
+   .vendor-sidebar__header {
+     padding: 16px;
+   }
+   
++  .vendor-brand__initials {
++    width: 40px;
++    height: 40px;
++    font-size: 16px;
++  }
++  
++  .vendor-brand__info h3 {
++    font-size: 15px;
++  }
++  
+   .vendor-nav-item {
+     padding: 12px 16px;
+   }
++  
++  .vendor-nav-subitem {
++    padding: 10px 16px 10px 28px;
++  }
++  
++  .vendor-sidebar__footer {
++    padding: 16px;
++  }
++  
++  .vendor-footer-link {
++    justify-content: center;
++  }
+ }
+ 
+-/* Animation for sidebar collapse */
+-@keyframes slideIn {
++/* Small Mobile */
++@media (max-width: 640px) {
++  .vendor-header {
++    padding: 10px 12px;
++    height: 56px;
++  }
++  
++  .vendor-header__title h1 {
++    font-size: 16px;
++  }
++  
++  .vendor-content {
++    padding: 16px 12px;
++  }
++  
++  .vendor-brand__initials {
++    width: 36px;
++    height: 36px;
++  }
++  
++  .vendor-brand__info h3 {
++    font-size: 14px;
++  }
++  
++  .vendor-brand__specialty {
++    display: none;
++  }
++  
++  .vendor-nav-item {
++    padding: 10px 12px;
++    font-size: 12px;
++  }
++  
++  .vendor-nav-item__label {
++    display: none;
++  }
++  
++  .vendor-nav-item__icon {
++    margin: 0 auto;
++  }
++  
++  .vendor-nav-chevron {
++    display: none;
++  }
++  
++  .vendor-nav-sublist {
++    display: none;
++  }
++}
++
++/* Animations */
++@keyframes fadeIn {
+   from {
+     opacity: 0;
+-    transform: translateX(-20px);
++    transform: translateY(-10px);
+   }
+   to {
+     opacity: 1;
+-    transform: translateX(0);
++    transform: translateY(0);
+   }
+ }
+ 
+-.vendor-sidebar .vendor-nav-item {
+-  animation: slideIn 0.3s ease forwards;
+-}
+-
+-/* Scrollbar styling */
+-.vendor-sidebar::-webkit-scrollbar {
+-  width: 6px;
+-}
+-
+-.vendor-sidebar::-webkit-scrollbar-track {
+-  background: transparent;
+-}
+-
+-.vendor-sidebar::-webkit-scrollbar-thumb {
+-  background: rgba(255, 255, 255, 0.2);
+-  border-radius: 3px;
++.vendor-header {
++  animation: fadeIn 0.3s ease-out;
+ }
+ 
+-.vendor-sidebar::-webkit-scrollbar-thumb:hover {
+-  background: rgba(255, 255, 255, 0.3);
++.vendor-sidebar .vendor-nav-item {
++  animation: fadeIn 0.3s ease-out backwards;
+ }
+ 
+-/* Focus states for accessibility */
+-.vendor-nav-item:focus,
+-.vendor-header__action:focus,
+-.vendor-header__user:focus {
+-  outline: 2px solid #4ade80;
+-  outline-offset: 2px;
+-}
++.vendor-sidebar .vendor-nav-item:nth-child(1) { animation-delay: 0.05s; }
++.vendor-sidebar .vendor-nav-item:nth-child(2) { animation-delay: 0.1s; }
++.vendor-sidebar .vendor-nav-item:nth-child(3) { animation-delay: 0.15s; }
++.vendor-sidebar .vendor-nav-item:nth-child(4) { animation-delay: 0.2s; }
++.vendor-sidebar .vendor-nav-item:nth-child(5) { animation-delay: 0.25s; }
++.vendor-sidebar .vendor-nav-item:nth-child(6) { animation-delay: 0.3s; }
+ 
+-/* Reduced motion preference */
+ @media (prefers-reduced-motion: reduce) {
++  .vendor-header,
+   .vendor-sidebar .vendor-nav-item {
+     animation: none;
+   }
+-  
+-  *,
+-  *::before,
+-  *::after {
+-    animation-duration: 0.01ms !important;
+-    animation-iteration-count: 1 !important;
+-    transition-duration: 0.01ms !important;
+-  }
+ }
+-- 
+2.47.3
+
