@@ -11,7 +11,7 @@ export function VendorHeader() {
   // Extraire le titre de la page à partir du pathname
   const getPageTitle = () => {
     const path = location.pathname
-    if (path === '/vendor') return 'Tableau de bord'
+    if (path === '/vendor' || path === '/vendor/dashboard') return 'Tableau de bord'
     if (path.startsWith('/vendor/products')) return 'Produits'
     if (path.startsWith('/vendor/orders')) return 'Commandes'
     if (path.startsWith('/vendor/deliveries')) return 'Livraisons'
@@ -34,31 +34,35 @@ export function VendorHeader() {
       </div>
 
       <div className="vendor-header__right">
+        {/* Search - Hidden on mobile */}
         <div className="vendor-header__search">
           <Search size={18} />
           <input 
             type="text" 
-            placeholder="Rechercher..." 
+            placeholder="Rechercher dans la boutique..." 
             className="vendor-search-input"
           />
         </div>
         
-        <Link to="/vendor/orders" className="vendor-header__action" aria-label="Scanner QR">
+        {/* QR Scanner */}
+        <Link to="/vendor/orders" className="vendor-header__action" aria-label="Scanner QR Code">
           <QrCode size={20} />
           <span className="vendor-action-tooltip">Scanner QR</span>
         </Link>
         
+        {/* Notifications */}
         <Link to="/vendor/notifications" className="vendor-header__action" aria-label="Notifications">
           <Bell size={20} />
           <span className="notification-badge">3</span>
         </Link>
         
+        {/* User Menu */}
         <div className="vendor-header__user">
           <div className="vendor-user-avatar">
-            {user?.firstName.charAt(0) ?? 'V'}
+            {(user?.firstName || user?.name || 'V').charAt(0).toUpperCase()}
           </div>
           <div className="vendor-user-info">
-            <span className="vendor-user-name">{user?.name ?? 'Vendeur'}</span>
+            <span className="vendor-user-name">{user?.name || user?.firstName || 'Vendeur'}</span>
             <span className="vendor-user-role">Vendeur</span>
           </div>
         </div>

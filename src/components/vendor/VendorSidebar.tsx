@@ -18,7 +18,7 @@ const navItems = [
     to: '/vendor',
     label: 'Tableau de bord',
     icon: LayoutDashboard,
-    matches: ['/vendor'],
+    matches: ['/vendor', '/vendor/dashboard'],
   },
   {
     to: '/vendor/products',
@@ -68,6 +68,7 @@ export function VendorSidebar() {
 
   return (
     <aside className="vendor-sidebar">
+      {/* Brand Section */}
       <div className="vendor-sidebar__header">
         <div className="vendor-brand">
           <span className="vendor-brand__initials">
@@ -82,6 +83,7 @@ export function VendorSidebar() {
         </div>
       </div>
 
+      {/* Main Navigation */}
       <nav className="vendor-sidebar__nav" aria-label="Navigation vendeur">
         <ul className="vendor-nav-list">
           {navItems.map((item) => {
@@ -95,14 +97,14 @@ export function VendorSidebar() {
             )
 
             return (
-              <li key={item.to} className="vendor-nav-item">
+              <li key={item.to} className="vendor-nav-item-wrapper">
                 <Link 
                   to={item.to} 
-                  className={`vendor-nav-link ${active || childrenActive ? 'active' : ''}`}
+                  className={`vendor-nav-item ${active || childrenActive ? 'active' : ''}`}
                   aria-current={active || childrenActive ? 'page' : undefined}
                 >
-                  <item.icon size={18} />
-                  <span>{item.label}</span>
+                  <item.icon size={18} className="vendor-nav-item__icon" />
+                  <span className="vendor-nav-item__label">{item.label}</span>
                   {hasChildren && (
                     <span className="vendor-nav-chevron">▼</span>
                   )}
@@ -113,13 +115,13 @@ export function VendorSidebar() {
                       const childActive = location.pathname === child.to || 
                         location.pathname.startsWith(`${child.to}/`)
                       return (
-                        <li key={child.to} className="vendor-nav-subitem">
+                        <li key={child.to} className="vendor-nav-subitem-wrapper">
                           <Link 
                             to={child.to}
-                            className={`vendor-nav-sublink ${childActive ? 'active' : ''}`}
+                            className={`vendor-nav-subitem ${childActive ? 'active' : ''}`}
                           >
-                            <child.icon size={16} />
-                            <span>{child.label}</span>
+                            <child.icon size={16} className="vendor-nav-subitem__icon" />
+                            <span className="vendor-nav-subitem__label">{child.label}</span>
                           </Link>
                         </li>
                       )
@@ -132,6 +134,7 @@ export function VendorSidebar() {
         </ul>
       </nav>
 
+      {/* Footer */}
       <div className="vendor-sidebar__footer">
         <Link to="/home" className="vendor-footer-link">
           ← Retour à l'espace étudiant

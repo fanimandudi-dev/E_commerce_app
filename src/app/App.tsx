@@ -92,9 +92,13 @@ export default function App() {
         <Route element={<VendorAppShell/>}>
           <Route path="dashboard" element={<VendorDashboard/>}/>
           <Route path="products" element={<VendorProductsPage/>}/>
+          <Route path="products/new" element={<VendorProductsPage/>}/>
           <Route path="orders" element={<VendorOrdersPage/>}/>
+          <Route path="orders/new" element={<VendorOrdersPage/>}/>
+          <Route path="deliveries" element={<div>Livraisons - À implémenter</div>}/>
           <Route path="analytics" element={<AnalyticsPage/>}/>
           <Route path="settings" element={<VendorSettingsPage/>}/>
+          <Route path="notifications" element={<div>Notifications - À implémenter</div>}/>
           <Route path="" element={<Navigate to="dashboard" replace/>}/>
         </Route>
       </Route>
