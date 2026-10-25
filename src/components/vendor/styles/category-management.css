@@ -1,0 +1,325 @@
+/* Category Management Page Styles */
+
+.category-management {
+  padding: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.category-management__header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.category-management__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.category-management__subtitle {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Add Category Form */
+.category-management__add-form {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.category-management__add-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.625rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.category-management__add-input:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.category-management__add-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.category-management__add-button:hover {
+  background-color: #059669;
+}
+
+.category-management__add-button:disabled {
+  background-color: #6b7280;
+  cursor: not-allowed;
+}
+
+/* Category List */
+.category-management__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.category-management__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.category-management__item:hover {
+  background-color: #f3f4f6;
+}
+
+.category-management__item-name {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.category-management__item-count {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.category-management__item-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.category-management__action-button {
+  padding: 0.375rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #6b7280;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.category-management__action-button:hover {
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+
+.category-management__action-button--edit:hover {
+  color: #3b82f6;
+}
+
+.category-management__action-button--delete:hover {
+  color: #ef4444;
+}
+
+/* Edit Modal */
+.category-management__modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.category-management__modal {
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: category-management__modal-fade-in 0.2s ease;
+}
+
+@keyframes category-management__modal-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category-management__modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.category-management__modal-input {
+  width: 100%;
+  padding: 0.625rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.category-management__modal-input:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.category-management__modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.category-management__modal-button {
+  padding: 0.625rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.category-management__modal-button--cancel {
+  background-color: #f3f4f6;
+  color: #374151;
+  border: none;
+}
+
+.category-management__modal-button--cancel:hover {
+  background-color: #e5e7eb;
+}
+
+.category-management__modal-button--save {
+  background-color: #10b981;
+  color: white;
+  border: none;
+}
+
+.category-management__modal-button--save:hover {
+  background-color: #059669;
+}
+
+.category-management__modal-button--delete {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+}
+
+.category-management__modal-button--delete:hover {
+  background-color: #dc2626;
+}
+
+/* Delete Confirmation */
+.category-management__delete-confirm {
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.category-management__delete-confirm strong {
+  color: #1f2937;
+}
+
+/* Empty State */
+.category-management__empty {
+  text-align: center;
+  padding: 3rem;
+  color: #6b7280;
+}
+
+.category-management__empty-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.category-management__empty-text {
+  margin-bottom: 1rem;
+}
+
+/* Error Message */
+.category-management__error {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Loading State */
+.category-management__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.category-management__spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f3f4f6;
+  border-top-color: #10b981;
+  border-radius: 50%;
+  animation: category-management__spin 0.8s linear infinite;
+}
+
+@keyframes category-management__spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .category-management {
+    padding: 1rem;
+  }
+
+  .category-management__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .category-management__add-form {
+    flex-direction: column;
+  }
+
+  .category-management__add-input {
+    width: 100%;
+  }
+
+  .category-management__item {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .category-management__modal {
+    margin: 0 1rem;
+  }
+}
