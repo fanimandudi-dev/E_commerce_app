@@ -1,195 +1,115 @@
-/* Product Performance Component Styles */
+/* ===================================================================
+   Food Campus Vendor - Product Performance
+   Modern SaaS Product Performance Component
+   =================================================================== */
+
+@import url('./vendor-variables.css');
+@import url('./vendor-shared.css');
+
+/* Product Performance Card */
 .product-performance {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius);
+  padding: var(--vendor-spacing-md);
+  border: 1px solid var(--vendor-border-light);
+  transition: all var(--vendor-transition);
+  cursor: pointer;
 }
 
+.product-performance:hover {
+  border-color: var(--vendor-primary-500);
+  box-shadow: var(--vendor-shadow);
+  transform: translateY(-1px);
+}
+
+/* Product Performance Header */
 .product-performance__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-}
-
-.product-performance__title {
-  font-size: 14px;
-  font-weight: 600;
-  color: #1f2937;
-  margin: 0;
+  margin-bottom: var(--vendor-spacing-sm);
 }
 
 .product-performance__rank {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
-  background: #eff6ff;
-  color: #2563eb;
+  border-radius: var(--vendor-radius-full);
+  background: linear-gradient(135deg, var(--vendor-brand) 0%, var(--vendor-brand-light) 100%);
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  font-weight: 600;
-}
-
-.product-performance__rank--top {
-  background: #f0fdf4;
-  color: #16a34a;
-}
-
-.product-performance__rank--bottom {
-  background: #fee2e2;
-  color: #991b1b;
-}
-
-.product-performance__content {
-  display: flex;
-  gap: 16px;
-}
-
-.product-performance__image {
-  width: 56px;
-  height: 56px;
-  border-radius: 8px;
-  object-fit: cover;
-  background: #f3f4f6;
+  font-weight: 700;
   flex-shrink: 0;
 }
 
-.product-performance__info {
-  flex: 1;
-  min-width: 0;
-}
-
 .product-performance__name {
-  font-size: 13px;
-  font-weight: 500;
-  color: #1f2937;
-  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--vendor-text-primary);
+  flex: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin: 0 var(--vendor-spacing-sm);
 }
 
-.product-performance__category {
-  font-size: 11px;
-  color: #6b7280;
-  margin: 0;
+.product-performance__sales {
+  font-size: 12px;
+  color: var(--vendor-text-muted);
 }
 
+/* Product Performance Stats */
 .product-performance__stats {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: flex-end;
+  gap: var(--vendor-spacing-md);
 }
 
 .product-performance__stat {
   display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 11px;
-  color: #6b7280;
+  flex-direction: column;
+  gap: var(--vendor-spacing-xs);
+}
+
+.product-performance__stat-label {
+  font-size: 10px;
+  color: var(--vendor-text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .product-performance__stat-value {
-  font-weight: 600;
-  color: #1f2937;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--vendor-brand);
 }
 
-.product-performance__stat--sales {
-  color: #166534;
-}
-
-.product-performance__stat--revenue {
-  color: #2563eb;
-}
-
-.product-performance__progress {
-  width: 100%;
-  height: 4px;
-  background: #e5e7eb;
-  border-radius: 2px;
-  margin-top: 8px;
-  overflow: hidden;
-}
-
-.product-performance__progress-bar {
-  height: 100%;
-  border-radius: 2px;
-  transition: width 0.3s ease;
-}
-
-.product-performance__progress-bar--high {
-  background: #16a34a;
-}
-
-.product-performance__progress-bar--medium {
-  background: #84cc16;
-}
-
-.product-performance__progress-bar--low {
-  background: #f97316;
-}
-
-.product-performance__compact {
-  padding: 16px;
-}
-
-.product-performance__compact .product-performance__image {
-  width: 40px;
-  height: 40px;
-}
-
-.product-performance__compact .product-performance__name {
-  font-size: 12px;
-}
-
-.product-performance__compact .product-performance__rank {
-  width: 24px;
-  height: 24px;
-  font-size: 10px;
-}
-
-.product-performance__horizontal {
-  flex-direction: row;
-  align-items: center;
-}
-
-.product-performance__horizontal .product-performance__content {
-  flex-direction: row;
-  align-items: center;
-}
-
-.product-performance__horizontal .product-performance__stats {
-  flex-direction: row;
-  align-items: center;
-  gap: 16px;
-}
-
-.product-performance__horizontal .product-performance__progress {
-  width: 80px;
-  margin-top: 0;
-}
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
 
 @media (max-width: 768px) {
   .product-performance {
-    padding: 16px;
+    padding: var(--vendor-spacing-sm);
   }
   
-  .product-performance__content {
-    flex-direction: column;
-    gap: 12px;
+  .product-performance__rank {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
   }
   
-  .product-performance__stats {
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
+  .product-performance__name {
+    font-size: 13px;
   }
   
-  .product-performance__progress {
-    margin-top: 8px;
+  .product-performance__sales {
+    font-size: 11px;
+  }
+  
+  .product-performance__stat-value {
+    font-size: 13px;
   }
 }

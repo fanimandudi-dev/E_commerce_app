@@ -12,6 +12,7 @@ import {
   CheckSquare
 } from 'lucide-react'
 import { useVendorStore } from '../../features/vendor/vendorStore'
+import './styles/vendor-sidebar.css'
 
 const navItems = [
   {

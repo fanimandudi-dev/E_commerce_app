@@ -1,50 +1,109 @@
-/* Vendor Shell Styles */
+/* ===================================================================
+   Food Campus Vendor - Shell Layout
+   Modern SaaS Dashboard Shell
+   =================================================================== */
+
+@import url('./vendor-variables.css');
+
+/* Shell Container */
 .vendor-shell {
   min-height: 100vh;
   display: flex;
+  background: var(--vendor-bg-secondary);
+  font-family: var(--vendor-font-family);
 }
 
-.vendor-shell__sidebar {
-  width: 256px;
-  background: white;
-  border-right: 1px solid #e5e7eb;
+/* Sidebar */
+.vendor-sidebar {
+  width: var(--vendor-sidebar-width);
+  background: var(--vendor-sidebar-bg);
+  border-right: 1px solid var(--vendor-border-light);
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
+  transition: width var(--vendor-transition), transform var(--vendor-transition);
+  z-index: var(--vendor-z-sticky);
 }
 
-.vendor-shell__main {
+/* Main Content Area */
+.vendor-main {
   flex: 1;
-  overflow-y: auto;
-}
-
-.vendor-shell__header {
-  height: 64px;
-  background: white;
-  border-bottom: 1px solid #e5e7eb;
-  position: sticky;
-  top: 0;
-  z-index: 10;
   display: flex;
-  align-items: center;
-  padding: 0 24px;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 100vh;
 }
 
+/* Content Wrapper */
+.vendor-content {
+  flex: 1;
+  padding: var(--vendor-spacing-2xl);
+  background: var(--vendor-bg-secondary);
+  min-height: calc(100vh - var(--vendor-header-height));
+}
+
+/* ===================================================================
+   Responsive Design - Mobile First
+   =================================================================== */
+
+/* Tablet Breakpoint */
+@media (max-width: 1024px) {
+  .vendor-sidebar {
+    width: 240px;
+  }
+  
+  .vendor-content {
+    padding: var(--vendor-spacing-xl);
+  }
+}
+
+/* Mobile Breakpoint */
 @media (max-width: 768px) {
   .vendor-shell {
     flex-direction: column;
   }
   
-  .vendor-shell__sidebar {
+  .vendor-sidebar {
     width: 100%;
     height: auto;
     position: relative;
     border-right: none;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--vendor-border-light);
+    order: 1;
   }
   
-  .vendor-shell__main {
+  .vendor-main {
     flex: 1;
+    order: 2;
   }
+  
+  .vendor-content {
+    padding: var(--vendor-spacing-md);
+    min-height: calc(100vh - var(--vendor-header-height-mobile) - 60px);
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .vendor-content {
+    padding: var(--vendor-spacing-sm);
+  }
+}
+
+/* Animation for sidebar */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Smooth transitions */
+.vendor-sidebar,
+.vendor-main,
+.vendor-content {
+  transition: all var(--vendor-transition);
 }

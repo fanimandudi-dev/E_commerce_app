@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { 
   Search,
-  Plus,
   Edit,
   Trash2,
   Eye,
@@ -97,11 +96,6 @@ export function ProductList() {
             <Filter size={18} />
             <span>Filtres</span>
           </button>
-          
-          <Link to="/vendor/products/new" className="product-list__add-button">
-            <Plus size={18} />
-            <span>Ajouter</span>
-          </Link>
         </div>
       </div>
 

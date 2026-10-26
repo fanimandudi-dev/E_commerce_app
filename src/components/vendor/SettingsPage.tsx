@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useVendorStore } from '../../features/vendor/vendorStore'
+import { CategoryManagementPage } from '../../pages/vendor/CategoryManagementPage'
 import { 
   User, 
   Store, 
@@ -16,13 +18,14 @@ import {
   Eye,
   EyeOff,
   Lock,
-  Unlock
+  Unlock,
+  Tag
 } from 'lucide-react'
 import './styles/settings-page.css'
 
 export function SettingsPage() {
   const { vendor, updateVendor, loading, error } = useVendorStore()
-  const [activeSection, setActiveSection] = useState<'profile' | 'store' | 'notifications' | 'security' | 'help'>('profile')
+  const [activeSection, setActiveSection] = useState<'profile' | 'store' | 'notifications' | 'security' | 'help' | 'categories'>('profile')
   const [editMode, setEditMode] = useState<string | null>(null)
   const [formData, setFormData] = useState<Record<string, string | File | null>>({})
   const [notificationSettings, setNotificationSettings] = useState<Record<string, boolean>>({
@@ -57,7 +60,7 @@ export function SettingsPage() {
   }, [vendor])
 
   // Gérer le changement de section
-  const handleSectionChange = (section: 'profile' | 'store' | 'notifications' | 'security' | 'help') => {
+  const handleSectionChange = (section: 'profile' | 'store' | 'notifications' | 'security' | 'help' | 'categories') => {
     setActiveSection(section)
     setEditMode(null)
   }
@@ -184,6 +187,17 @@ export function SettingsPage() {
               >
                 <Store size={20} />
                 <span>Ma Boutique</span>
+                <ChevronRight size={16} className="settings-page__nav-icon" />
+              </button>
+            </li>
+
+            <li className="settings-page__nav-item">
+              <button 
+                className={`settings-page__nav-button ${activeSection === 'categories' ? 'settings-page__nav-button--active' : ''}`}
+                onClick={() => handleSectionChange('categories')}
+              >
+                <Tag size={20} />
+                <span>Catégories</span>
                 <ChevronRight size={16} className="settings-page__nav-icon" />
               </button>
             </li>
@@ -486,6 +500,21 @@ export function SettingsPage() {
                     </div>
                   )}
                 </div>
+              </div>
+            </div>
+          )}
+
+          {/* Categories Section */}
+          {activeSection === 'categories' && (
+            <div className="settings-page__section">
+              <div className="settings-page__section-header">
+                <h2 className="settings-page__section-title">
+                  <Tag size={24} />
+                  Gestion des catégories
+                </h2>
+              </div>
+              <div className="settings-page__section-content">
+                <CategoryManagementPage />
               </div>
             </div>
           )}

@@ -1,167 +1,200 @@
-/* Stat Card Component Styles */
+/* ===================================================================
+   Food Campus Vendor - Stat Card
+   Modern SaaS Stat Card Component
+   =================================================================== */
+
+@import url('./vendor-variables.css');
+
+/* Stat Card Container */
 .stat-card {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius-lg);
+  padding: var(--vendor-spacing-xl);
+  border: 1px solid var(--vendor-border-light);
+  transition: all var(--vendor-transition);
+  position: relative;
+  overflow: hidden;
 }
 
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--vendor-primary-400), var(--vendor-primary-600));
+  transform: scaleX(0);
+  transition: transform var(--vendor-transition);
+}
+
+.stat-card:hover {
+  box-shadow: var(--vendor-shadow-md);
+  transform: translateY(-2px);
+}
+
+.stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Icon Container */
 .stat-card__icon {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
+  border-radius: var(--vendor-radius);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  flex-shrink: 0;
+  margin-bottom: var(--vendor-spacing-md);
+  transition: transform var(--vendor-transition);
+}
+
+.stat-card:hover .stat-card__icon {
+  transform: scale(1.1);
+}
+
+.stat-card__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Icon Colors */
+.stat-card__icon--green {
+  background: linear-gradient(135deg, var(--vendor-success-50) 0%, var(--vendor-success-100) 100%);
+  color: var(--vendor-success-600);
 }
 
 .stat-card__icon--blue {
-  background: #eff6ff;
-  color: #2563eb;
-}
-
-.stat-card__icon--green {
-  background: #f0fdf4;
-  color: #16a34a;
-}
-
-.stat-card__icon--orange {
-  background: #fff7ed;
-  color: #f97316;
+  background: linear-gradient(135deg, var(--vendor-info-50) 0%, var(--vendor-info-100) 100%);
+  color: var(--vendor-info-600);
 }
 
 .stat-card__icon--purple {
-  background: #f5f3ff;
-  color: #8b5cf6;
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  color: #7c3aed;
+}
+
+.stat-card__icon--orange {
+  background: linear-gradient(135deg, var(--vendor-warning-50) 0%, var(--vendor-warning-100) 100%);
+  color: var(--vendor-warning-600);
 }
 
 .stat-card__icon--red {
-  background: #fee2e2;
-  color: #991b1b;
+  background: linear-gradient(135deg, var(--vendor-error-50) 0%, var(--vendor-error-100) 100%);
+  color: var(--vendor-error-600);
 }
 
-.stat-card__content {
-  flex: 1;
-  min-width: 0;
-}
-
+/* Value */
 .stat-card__value {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
-  color: #1f2937;
-  margin: 0;
+  color: var(--vendor-text-primary);
+  margin: 0 0 var(--vendor-spacing-xs) 0;
   line-height: 1.2;
 }
 
+/* Label */
 .stat-card__label {
-  font-size: 13px;
-  color: #6b7280;
-  margin: 4px 0 0 0;
+  font-size: 12px;
+  color: var(--vendor-text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.stat-card__trend {
-  display: flex;
+/* Change Indicator */
+.stat-card__change {
+  display: inline-flex;
   align-items: center;
   gap: 4px;
-  margin-top: 4px;
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: var(--vendor-spacing-sm);
+  padding: 4px 10px;
+  border-radius: var(--vendor-radius-full);
 }
 
-.stat-card__trend--up {
-  color: #166534;
+.stat-card__change--positive {
+  background: var(--vendor-success-50);
+  color: var(--vendor-success-700);
 }
 
-.stat-card__trend--down {
-  color: #991b1b;
+.stat-card__change--negative {
+  background: var(--vendor-error-50);
+  color: var(--vendor-error-700);
 }
 
-.stat-card__trend-icon {
+.stat-card__change--neutral {
+  background: var(--vendor-bg-tertiary);
+  color: var(--vendor-text-muted);
+}
+
+.stat-card__change svg {
   width: 12px;
   height: 12px;
 }
 
-.stat-card__compact {
-  padding: 16px;
+/* Progress Bar */
+.stat-card__progress {
+  margin-top: var(--vendor-spacing-md);
+  height: 6px;
+  background: var(--vendor-bg-tertiary);
+  border-radius: var(--vendor-radius-full);
+  overflow: hidden;
 }
 
-.stat-card__compact .stat-card__icon {
-  width: 40px;
-  height: 40px;
+.stat-card__progress-bar {
+  height: 100%;
+  border-radius: var(--vendor-radius-full);
+  transition: width var(--vendor-transition-slow);
 }
 
-.stat-card__compact .stat-card__value {
-  font-size: 18px;
+.stat-card__progress-bar--green {
+  background: linear-gradient(90deg, var(--vendor-success-500), var(--vendor-success-600));
 }
 
-.stat-card__large {
-  padding: 28px;
+.stat-card__progress-bar--blue {
+  background: linear-gradient(90deg, var(--vendor-info-500), var(--vendor-info-600));
 }
 
-.stat-card__large .stat-card__icon {
-  width: 56px;
-  height: 56px;
+.stat-card__progress-bar--purple {
+  background: linear-gradient(90deg, #8b5cf6, #7c3aed);
 }
 
-.stat-card__large .stat-card__value {
-  font-size: 32px;
+.stat-card__progress-bar--orange {
+  background: linear-gradient(90deg, var(--vendor-warning-500), var(--vendor-warning-600));
 }
 
-.stat-card__large .stat-card__label {
-  font-size: 14px;
-}
-
-.stat-card__vertical {
-  flex-direction: column;
-  text-align: center;
-}
-
-.stat-card__vertical .stat-card__icon {
-  width: 48px;
-  height: 48px;
-}
-
-.stat-card__vertical .stat-card__value {
-  margin-top: 12px;
-}
-
-.stat-card__clickable {
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.stat-card__clickable:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transform: translateY(-2px);
-}
-
-.stat-card__loading {
-  opacity: 0.6;
-  pointer-events: none;
-}
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
 
 @media (max-width: 768px) {
   .stat-card {
-    padding: 16px;
-    gap: 12px;
+    padding: var(--vendor-spacing-lg);
   }
   
   .stat-card__icon {
     width: 40px;
     height: 40px;
-    font-size: 16px;
+  }
+  
+  .stat-card__icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .stat-card__value {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-card {
+    padding: var(--vendor-spacing-md);
   }
   
   .stat-card__value {
     font-size: 20px;
-  }
-  
-  .stat-card__label {
-    font-size: 12px;
   }
 }

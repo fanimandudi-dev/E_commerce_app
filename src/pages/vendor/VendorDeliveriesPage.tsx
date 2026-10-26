@@ -4,6 +4,7 @@ import { MapPin, Search, Truck } from 'lucide-react'
 import { PageHeader } from '../../components/ui/PageHeader'
 import { EmptyState } from '../../components/ui/EmptyState'
 import { useVendorStore, VendorOrder } from '../../features/vendor/vendorStore'
+import '../../components/vendor/styles/deliveries-page.css'
 
 export function VendorDeliveriesPage() {
   const { orders } = useVendorStore()

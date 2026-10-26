@@ -1,0 +1,173 @@
+/* ===================================================================
+   Food Campus Vendor - Design System Variables
+   Modern SaaS Style for Vendor Dashboard
+   =================================================================== */
+
+/* Color Palette - Professional SaaS */
+:root {
+  /* Primary Colors - Food Campus Green */
+  --vendor-primary-50: #ecfdf5;
+  --vendor-primary-100: #d1fae5;
+  --vendor-primary-200: #a7f3d0;
+  --vendor-primary-300: #6ee7b7;
+  --vendor-primary-400: #34d399;
+  --vendor-primary-500: #10b981;
+  --vendor-primary-600: #059669;
+  --vendor-primary-700: #047857;
+  --vendor-primary-800: #065f46;
+  --vendor-primary-900: #064e3b;
+  
+  /* Brand Green (Original Food Campus) */
+  --vendor-brand: #157a3a;
+  --vendor-brand-light: #16a34a;
+  --vendor-brand-dark: #0f5d29;
+  
+  /* Neutral Colors */
+  --vendor-gray-50: #f9fafb;
+  --vendor-gray-100: #f3f4f6;
+  --vendor-gray-200: #e5e7eb;
+  --vendor-gray-300: #d1d5db;
+  --vendor-gray-400: #9ca3af;
+  --vendor-gray-500: #6b7280;
+  --vendor-gray-600: #4b5563;
+  --vendor-gray-700: #374151;
+  --vendor-gray-800: #1f2937;
+  --vendor-gray-900: #111827;
+  
+  /* Semantic Colors */
+  --vendor-success-50: #f0fdf4;
+  --vendor-success-100: #dcfce7;
+  --vendor-success-200: #bbf7d0;
+  --vendor-success-500: #22c55e;
+  --vendor-success-600: #16a34a;
+  --vendor-success-700: #15803d;
+  
+  --vendor-warning-50: #fffbeb;
+  --vendor-warning-100: #fef3c7;
+  --vendor-warning-500: #f59e0b;
+  --vendor-warning-600: #d97706;
+  
+  --vendor-error-50: #fef2f2;
+  --vendor-error-100: #fee2e2;
+  --vendor-error-500: #ef4444;
+  --vendor-error-600: #dc2626;
+  
+  --vendor-info-50: #eff6ff;
+  --vendor-info-100: #dbeafe;
+  --vendor-info-500: #3b82f6;
+  --vendor-info-600: #2563eb;
+  
+  /* Background Colors */
+  --vendor-bg-primary: #ffffff;
+  --vendor-bg-secondary: var(--vendor-gray-50);
+  --vendor-bg-tertiary: var(--vendor-gray-100);
+  
+  /* Text Colors */
+  --vendor-text-primary: var(--vendor-gray-900);
+  --vendor-text-secondary: var(--vendor-gray-600);
+  --vendor-text-tertiary: var(--vendor-gray-500);
+  --vendor-text-muted: var(--vendor-gray-400);
+  
+  /* Border Colors */
+  --vendor-border-light: var(--vendor-gray-200);
+  --vendor-border-medium: var(--vendor-gray-300);
+  --vendor-border-dark: var(--vendor-gray-400);
+  
+  /* Shadows */
+  --vendor-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --vendor-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --vendor-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --vendor-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --vendor-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  
+  /* Border Radius */
+  --vendor-radius-sm: 4px;
+  --vendor-radius: 8px;
+  --vendor-radius-lg: 12px;
+  --vendor-radius-xl: 16px;
+  --vendor-radius-full: 9999px;
+  
+  /* Spacing */
+  --vendor-spacing-xs: 4px;
+  --vendor-spacing-sm: 8px;
+  --vendor-spacing-md: 12px;
+  --vendor-spacing-lg: 16px;
+  --vendor-spacing-xl: 20px;
+  --vendor-spacing-2xl: 24px;
+  --vendor-spacing-3xl: 32px;
+  
+  /* Typography */
+  --vendor-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --vendor-font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+  
+  /* Transitions */
+  --vendor-transition-fast: 150ms ease;
+  --vendor-transition: 200ms ease;
+  --vendor-transition-slow: 300ms ease;
+  
+  /* Sidebar */
+  --vendor-sidebar-width: 280px;
+  --vendor-sidebar-collapsed-width: 80px;
+  --vendor-sidebar-bg: var(--vendor-bg-primary);
+  
+  /* Header */
+  --vendor-header-height: 64px;
+  --vendor-header-height-mobile: 56px;
+  
+  /* Z-Index Scale */
+  --vendor-z-dropdown: 100;
+  --vendor-z-sticky: 200;
+  --vendor-z-fixed: 300;
+  --vendor-z-modal-backdrop: 400;
+  --vendor-z-modal: 500;
+  --vendor-z-popover: 600;
+  --vendor-z-tooltip: 700;
+}
+
+/* Dark Mode Variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --vendor-bg-primary: #0f172a;
+    --vendor-bg-secondary: #1e293b;
+    --vendor-bg-tertiary: #334155;
+    
+    --vendor-text-primary: #f8fafc;
+    --vendor-text-secondary: #cbd5e1;
+    --vendor-text-tertiary: #94a3b8;
+    --vendor-text-muted: #64748b;
+    
+    --vendor-border-light: #334155;
+    --vendor-border-medium: #475569;
+    --vendor-border-dark: #64748b;
+    
+    --vendor-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --vendor-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.2);
+    --vendor-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+    
+    --vendor-sidebar-bg: var(--vendor-bg-secondary);
+  }
+}
+
+/* Base Reset for Vendor */
+.vendor-shell *,
+.vendor-shell *::before,
+.vendor-shell *::after {
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling */
+.vendor-shell {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--vendor-primary-500);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--vendor-primary-200);
+  color: var(--vendor-primary-900);
+}

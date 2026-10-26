@@ -5,6 +5,7 @@ import { PageHeader } from '../../components/ui/PageHeader'
 import { OrderList } from '../../components/vendor/OrderList'
 import { useVendorStore, VendorOrder } from '../../features/vendor/vendorStore'
 import type { OrderStatus } from '../../domain/models'
+import '../../components/vendor/styles/orders-page.css'
 
 type OrderFilter = 'all' | 'pending' | 'preparing' | 'ready' | 'completed' | 'cancelled'
 

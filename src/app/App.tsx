@@ -26,6 +26,9 @@ import { VendorDeliveriesPage } from '../pages/vendor/VendorDeliveriesPage'
 import { VendorNotificationsPage } from '../pages/vendor/VendorNotificationsPage'
 import { AnalyticsPage } from '../components/vendor/AnalyticsPage'
 import { SettingsPage as VendorSettingsPage } from '../components/vendor/SettingsPage'
+import { ProductFormPage, ProductEditPage } from '../pages/vendor/ProductFormPage'
+import { CategoryManagementPage } from '../pages/vendor/CategoryManagementPage'
+import { ProductDetail } from '../components/vendor/ProductDetail'
 
 function LegacyAppRedirect() {
   const location = useLocation()
@@ -94,7 +97,10 @@ export default function App() {
         <Route element={<VendorAppShell/>}>
           <Route path="dashboard" element={<VendorDashboard/>}/>
           <Route path="products" element={<VendorProductsPage/>}/>
-          <Route path="products/new" element={<VendorProductsPage/>}/>
+          <Route path="products/new" element={<ProductFormPage/>}/>
+          <Route path="products/:id" element={<ProductDetail/>}/>
+          <Route path="products/:id/edit" element={<ProductEditPage/>}/>
+          <Route path="categories" element={<CategoryManagementPage/>}/>
           <Route path="orders" element={<VendorOrdersPage/>}/>
           <Route path="orders/new" element={<VendorOrdersPage/>}/>
           <Route path="deliveries" element={<VendorDeliveriesPage/>}/>

@@ -3,6 +3,7 @@ import { Bell, CheckCheck, Clock, PackageCheck, X } from 'lucide-react'
 import { PageHeader } from '../../components/ui/PageHeader'
 import { EmptyState } from '../../components/ui/EmptyState'
 import { useVendorStore } from '../../features/vendor/vendorStore'
+import '../../components/vendor/styles/notifications-page.css'
 
 type NotificationType = 'order' | 'payment' | 'system' | 'promo'
 

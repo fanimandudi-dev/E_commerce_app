@@ -1,188 +1,175 @@
-/* Recent Order Component Styles */
+/* ===================================================================
+   Food Campus Vendor - Recent Order
+   Modern SaaS Recent Order Component
+   =================================================================== */
+
+@import url('./vendor-variables.css');
+@import url('./vendor-shared.css');
+
+/* Recent Order Card */
 .recent-order {
-  background: white;
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  transition: all 0.2s ease;
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius);
+  padding: var(--vendor-spacing-md);
+  border: 1px solid var(--vendor-border-light);
+  transition: all var(--vendor-transition);
   cursor: pointer;
-  border: 1px solid transparent;
 }
 
 .recent-order:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border-color: #e5e7eb;
+  border-color: var(--vendor-primary-500);
+  box-shadow: var(--vendor-shadow);
+  transform: translateY(-1px);
 }
 
-.recent-order__image {
-  width: 56px;
-  height: 56px;
-  border-radius: 8px;
-  object-fit: cover;
-  background: #f3f4f6;
-  flex-shrink: 0;
-}
-
-.recent-order__info {
-  flex: 1;
-  min-width: 0;
-}
-
+/* Recent Order Header */
 .recent-order__header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 4px;
+  align-items: center;
+  margin-bottom: var(--vendor-spacing-sm);
 }
 
 .recent-order__id {
-  font-size: 13px;
-  font-weight: 600;
-  color: #1f2937;
-  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--vendor-brand);
 }
 
 .recent-order__status {
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--vendor-radius-full);
+  font-size: 10px;
+  font-weight: 600;
 }
 
 .recent-order__status--pending {
-  background: #fef3c7;
-  color: #92400e;
+  background: var(--vendor-warning-50);
+  color: var(--vendor-warning-700);
 }
 
 .recent-order__status--preparing {
-  background: #dbeafe;
-  color: #1e40af;
+  background: var(--vendor-info-50);
+  color: var(--vendor-info-700);
 }
 
 .recent-order__status--ready {
-  background: #dcfce7;
-  color: #166534;
+  background: var(--vendor-success-50);
+  color: var(--vendor-success-700);
 }
 
 .recent-order__status--completed {
-  background: #d1fae5;
-  color: #065f46;
+  background: var(--vendor-success-50);
+  color: var(--vendor-success-700);
 }
 
 .recent-order__status--cancelled {
-  background: #fee2e2;
-  color: #991b1b;
+  background: var(--vendor-error-50);
+  color: var(--vendor-error-700);
+}
+
+/* Recent Order Time */
+.recent-order__time {
+  font-size: 11px;
+  color: var(--vendor-text-muted);
+}
+
+/* Recent Order Body */
+.recent-order__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vendor-spacing-xs);
+  margin-bottom: var(--vendor-spacing-sm);
 }
 
 .recent-order__customer {
-  font-size: 12px;
-  color: #6b7280;
-  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--vendor-text-primary);
 }
 
-.recent-order__details {
+.recent-order__items {
+  font-size: 12px;
+  color: var(--vendor-text-muted);
+}
+
+/* Recent Order Footer */
+.recent-order__footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 8px;
 }
 
-.recent-order__product {
-  font-size: 12px;
-  color: #374151;
+.recent-order__total {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--vendor-brand);
 }
 
-.recent-order__price {
-  font-size: 13px;
-  font-weight: 600;
-  color: #1f2937;
-}
-
-.recent-order__meta {
+.recent-order__actions {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 11px;
-  color: #6b7280;
+  gap: var(--vendor-spacing-xs);
 }
 
-.recent-order__time {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.recent-order__items-count {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.recent-order__compact {
-  padding: 12px 16px;
-}
-
-.recent-order__compact .recent-order__image {
-  width: 40px;
-  height: 40px;
-}
-
-.recent-order__compact .recent-order__id {
-  font-size: 12px;
-}
-
-.recent-order__compact .recent-order__status {
-  padding: 2px 8px;
+.recent-order__action {
+  padding: 4px 8px;
+  border-radius: var(--vendor-radius-sm);
   font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--vendor-transition-fast);
+  border: 1px solid transparent;
 }
 
-.recent-order__compact .recent-order__customer {
-  display: none;
+.recent-order__action--view {
+  background: var(--vendor-info-50);
+  color: var(--vendor-info-700);
 }
 
-.recent-order__compact .recent-order__details {
-  margin-top: 4px;
+.recent-order__action--view:hover {
+  background: var(--vendor-info-100);
 }
 
-.recent-order__compact .recent-order__product {
-  font-size: 11px;
+.recent-order__action--accept {
+  background: var(--vendor-success-50);
+  color: var(--vendor-success-700);
 }
 
-.recent-order__compact .recent-order__price {
-  font-size: 12px;
+.recent-order__action--accept:hover {
+  background: var(--vendor-success-100);
 }
+
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
 
 @media (max-width: 768px) {
   .recent-order {
-    gap: 12px;
+    padding: var(--vendor-spacing-sm);
   }
   
-  .recent-order__image {
-    width: 48px;
-    height: 48px;
-  }
-  
-  .recent-order__header {
-    flex-direction: column;
-    gap: 4px;
+  .recent-order__id {
+    font-size: 13px;
   }
   
   .recent-order__status {
-    align-self: flex-start;
+    font-size: 9px;
+    padding: 1px 6px;
   }
   
-  .recent-order__details {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+  .recent-order__customer {
+    font-size: 12px;
   }
   
-  .recent-order__meta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+  .recent-order__total {
+    font-size: 13px;
+  }
+  
+  .recent-order__action {
+    padding: 2px 6px;
+    font-size: 9px;
   }
 }

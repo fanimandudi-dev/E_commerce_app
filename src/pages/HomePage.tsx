@@ -7,6 +7,7 @@ import { useAuthStore } from '../features/auth/authStore'
 import { useVendors } from '../features/vendors/useVendors'
 import { VendorCard } from '../features/vendors/VendorCard'
 import { useOrderStore } from '../features/orders/orderStore'
+import './HomePage.css'
 
 export function HomePage() {
   const user = useAuthStore(state => state.user)
