@@ -1,0 +1,67 @@
+/* ===================================================================
+   Food Campus Vendor - Navbar (Legacy)
+   Modern SaaS Navbar Styles
+   =================================================================== */
+
+@import url('./vendor-variables.css');
+
+/* Navbar Container */
+.vendor-navbar {
+  background: var(--vendor-bg-primary);
+  border-bottom: 1px solid var(--vendor-border-light);
+  padding: var(--vendor-spacing-md) var(--vendor-spacing-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Navbar Brand */
+.vendor-navbar__brand {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--vendor-text-primary);
+}
+
+/* Navbar Menu */
+.vendor-navbar__menu {
+  display: flex;
+  gap: var(--vendor-spacing-xl);
+}
+
+.vendor-navbar__link {
+  color: var(--vendor-text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color var(--vendor-transition-fast);
+}
+
+.vendor-navbar__link:hover {
+  color: var(--vendor-text-primary);
+}
+
+.vendor-navbar__link.active {
+  color: var(--vendor-brand);
+}
+
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .vendor-navbar {
+    padding: var(--vendor-spacing-sm) var(--vendor-spacing-md);
+  }
+  
+  .vendor-navbar__brand {
+    font-size: 18px;
+  }
+  
+  .vendor-navbar__menu {
+    gap: var(--vendor-spacing-md);
+  }
+  
+  .vendor-navbar__link {
+    font-size: 13px;
+  }
+}

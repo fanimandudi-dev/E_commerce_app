@@ -20,10 +20,15 @@ import { ProfilePage } from '../pages/ProfilePage'
 import { SettingsPage } from '../pages/SettingsPage'
 import { VendorDetailPage } from '../pages/VendorDetailPage'
 import { VendorDashboard } from '../pages/vendor/VendorDashboard'
-import { ProductsPage as VendorProductsPage } from '../pages/ProductsPage'
-import { OrdersPage as VendorOrdersPage } from '../pages/OrdersPage'
+import { VendorProductsPage } from '../pages/vendor/VendorProductsPage'
+import { VendorOrdersPage } from '../pages/vendor/VendorOrdersPage'
+import { VendorDeliveriesPage } from '../pages/vendor/VendorDeliveriesPage'
+import { VendorNotificationsPage } from '../pages/vendor/VendorNotificationsPage'
 import { AnalyticsPage } from '../components/vendor/AnalyticsPage'
 import { SettingsPage as VendorSettingsPage } from '../components/vendor/SettingsPage'
+import { ProductFormPage, ProductEditPage } from '../pages/vendor/ProductFormPage'
+import { CategoryManagementPage } from '../pages/vendor/CategoryManagementPage'
+import { ProductDetail } from '../components/vendor/ProductDetail'
 
 function LegacyAppRedirect() {
   const location = useLocation()
@@ -92,13 +97,16 @@ export default function App() {
         <Route element={<VendorAppShell/>}>
           <Route path="dashboard" element={<VendorDashboard/>}/>
           <Route path="products" element={<VendorProductsPage/>}/>
-          <Route path="products/new" element={<VendorProductsPage/>}/>
+          <Route path="products/new" element={<ProductFormPage/>}/>
+          <Route path="products/:id" element={<ProductDetail/>}/>
+          <Route path="products/:id/edit" element={<ProductEditPage/>}/>
+          <Route path="categories" element={<CategoryManagementPage/>}/>
           <Route path="orders" element={<VendorOrdersPage/>}/>
           <Route path="orders/new" element={<VendorOrdersPage/>}/>
-          <Route path="deliveries" element={<div>Livraisons - À implémenter</div>}/>
+          <Route path="deliveries" element={<VendorDeliveriesPage/>}/>
           <Route path="analytics" element={<AnalyticsPage/>}/>
           <Route path="settings" element={<VendorSettingsPage/>}/>
-          <Route path="notifications" element={<div>Notifications - À implémenter</div>}/>
+          <Route path="notifications" element={<VendorNotificationsPage/>}/>
           <Route path="" element={<Navigate to="dashboard" replace/>}/>
         </Route>
       </Route>

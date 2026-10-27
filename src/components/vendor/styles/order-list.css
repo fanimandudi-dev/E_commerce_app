@@ -1,0 +1,393 @@
+/* ===================================================================
+   Food Campus Vendor - Order List
+   Modern SaaS Order List Component Styles
+   =================================================================== */
+
+@import url('./vendor-variables.css');
+@import url('./vendor-shared.css');
+
+/* Order List Container */
+.order-list {
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius-lg);
+  box-shadow: var(--vendor-shadow);
+  border: 1px solid var(--vendor-border-light);
+  overflow: hidden;
+}
+
+/* Order List Header */
+.order-list__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--vendor-spacing-lg);
+  border-bottom: 1px solid var(--vendor-border-light);
+}
+
+.order-list__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--vendor-text-primary);
+  margin: 0;
+}
+
+/* Order List Actions */
+.order-list__actions {
+  display: flex;
+  gap: var(--vendor-spacing-sm);
+}
+
+/* Search */
+.order-list__search {
+  position: relative;
+  flex: 1;
+  max-width: 320px;
+}
+
+.order-list__search-input {
+  width: 100%;
+  padding: var(--vendor-spacing-sm) var(--vendor-spacing-md);
+  padding-left: 36px;
+  border: 1px solid var(--vendor-border-light);
+  border-radius: var(--vendor-radius);
+  font-size: 13px;
+  color: var(--vendor-text-primary);
+  background: var(--vendor-bg-primary);
+  transition: all var(--vendor-transition-fast);
+}
+
+.order-list__search-input:focus {
+  outline: none;
+  border-color: var(--vendor-primary-500);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.order-list__search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--vendor-text-muted);
+}
+
+/* Filter Toggle */
+.order-list__filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--vendor-spacing-xs);
+  padding: var(--vendor-spacing-sm) var(--vendor-spacing-md);
+  border: 1px solid var(--vendor-border-light);
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius);
+  font-size: 13px;
+  color: var(--vendor-text-primary);
+  cursor: pointer;
+  transition: all var(--vendor-transition-fast);
+}
+
+.order-list__filter-toggle:hover {
+  border-color: var(--vendor-primary-500);
+}
+
+/* Order List Table */
+.order-list__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-list__thead {
+  background: var(--vendor-bg-secondary);
+}
+
+.order-list__th {
+  padding: var(--vendor-spacing-md) var(--vendor-spacing-lg);
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--vendor-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--vendor-border-light);
+}
+
+.order-list__tbody {
+}
+
+.order-list__tr {
+  border-bottom: 1px solid var(--vendor-border-light);
+  transition: background var(--vendor-transition-fast);
+}
+
+.order-list__tr:hover {
+  background: var(--vendor-bg-secondary);
+}
+
+.order-list__td {
+  padding: var(--vendor-spacing-md) var(--vendor-spacing-lg);
+  font-size: 13px;
+  color: var(--vendor-text-primary);
+}
+
+/* Order ID */
+.order-list__id {
+  font-weight: 700;
+  color: var(--vendor-brand);
+}
+
+/* Customer */
+.order-list__customer {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-list__customer-name {
+  font-weight: 600;
+  margin: 0 0 var(--vendor-spacing-xs) 0;
+}
+
+.order-list__customer-email {
+  font-size: 12px;
+  color: var(--vendor-text-muted);
+  margin: 0;
+}
+
+/* Status Badge */
+.order-list__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--vendor-radius-full);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.order-list__status--pending {
+  background: var(--vendor-warning-50);
+  color: var(--vendor-warning-700);
+}
+
+.order-list__status--preparing {
+  background: var(--vendor-info-50);
+  color: var(--vendor-info-700);
+}
+
+.order-list__status--ready {
+  background: var(--vendor-success-50);
+  color: var(--vendor-success-700);
+}
+
+.order-list__status--completed {
+  background: var(--vendor-success-50);
+  color: var(--vendor-success-700);
+}
+
+.order-list__status--cancelled {
+  background: var(--vendor-error-50);
+  color: var(--vendor-error-700);
+}
+
+/* Items Count */
+.order-list__items {
+  font-size: 12px;
+  color: var(--vendor-text-muted);
+  text-align: center;
+}
+
+/* Total */
+.order-list__total {
+  font-weight: 700;
+  color: var(--vendor-brand);
+}
+
+/* Date */
+.order-list__date {
+  font-size: 12px;
+  color: var(--vendor-text-muted);
+}
+
+/* Actions */
+.order-list__actions {
+  display: flex;
+  gap: var(--vendor-spacing-xs);
+}
+
+.order-list__action {
+  padding: var(--vendor-spacing-xs) var(--vendor-spacing-sm);
+  border-radius: var(--vendor-radius-sm);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--vendor-transition-fast);
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.order-list__action svg {
+  width: 14px;
+  height: 14px;
+}
+
+.order-list__action--view {
+  background: var(--vendor-info-50);
+  color: var(--vendor-info-700);
+}
+
+.order-list__action--view:hover {
+  background: var(--vendor-info-100);
+}
+
+.order-list__action--edit {
+  background: var(--vendor-warning-50);
+  color: var(--vendor-warning-700);
+}
+
+.order-list__action--edit:hover {
+  background: var(--vendor-warning-100);
+}
+
+.order-list__action--delete {
+  background: var(--vendor-error-50);
+  color: var(--vendor-error-700);
+}
+
+.order-list__action--delete:hover {
+  background: var(--vendor-error-100);
+}
+
+/* Empty State */
+.order-list__empty {
+  text-align: center;
+  padding: var(--vendor-spacing-3xl) var(--vendor-spacing-lg);
+  color: var(--vendor-text-secondary);
+}
+
+.order-list__empty-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--vendor-text-muted);
+  margin: 0 auto var(--vendor-spacing-lg) auto;
+  opacity: 0.5;
+}
+
+.order-list__empty-message {
+  font-size: 14px;
+  margin: 0 0 var(--vendor-spacing-xs) 0;
+}
+
+.order-list__empty-submessage {
+  font-size: 12px;
+  margin: 0;
+}
+
+/* Loading */
+.order-list__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--vendor-spacing-3xl);
+}
+
+/* Pagination */
+.order-list__pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--vendor-spacing-lg);
+  border-top: 1px solid var(--vendor-border-light);
+  flex-wrap: wrap;
+  gap: var(--vendor-spacing-md);
+}
+
+.order-list__pagination-info {
+  font-size: 12px;
+  color: var(--vendor-text-muted);
+}
+
+.order-list__pagination-controls {
+  display: flex;
+  gap: var(--vendor-spacing-xs);
+}
+
+.order-list__page-button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--vendor-border-light);
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius-sm);
+  font-size: 13px;
+  color: var(--vendor-text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--vendor-transition-fast);
+}
+
+.order-list__page-button:hover:not(:disabled) {
+  border-color: var(--vendor-primary-500);
+  background: var(--vendor-primary-50);
+}
+
+.order-list__page-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.order-list__page-button--active {
+  background: var(--vendor-primary-500);
+  color: white;
+  border-color: var(--vendor-primary-500);
+}
+
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .order-list__header {
+    flex-direction: column;
+    gap: var(--vendor-spacing-md);
+    align-items: stretch;
+  }
+  
+  .order-list__search {
+    max-width: none;
+  }
+  
+  .order-list__title {
+    font-size: 14px;
+  }
+  
+  .order-list__th,
+  .order-list__td {
+    padding: var(--vendor-spacing-sm);
+  }
+  
+  .order-list__customer-name {
+    font-size: 13px;
+  }
+  
+  .order-list__actions {
+    flex-direction: column;
+  }
+  
+  .order-list__action {
+    width: 100%;
+    justify-content: center;
+    padding: var(--vendor-spacing-sm);
+  }
+  
+  .order-list__pagination {
+    flex-direction: column;
+    gap: var(--vendor-spacing-md);
+  }
+  
+  .order-list__pagination-controls {
+    order: -1;
+  }
+}

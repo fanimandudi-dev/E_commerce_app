@@ -1,0 +1,199 @@
+/* ===================================================================
+   Food Campus Vendor - Notifications Page
+   Modern SaaS Notifications Page Styles
+   =================================================================== */
+
+@import url('./vendor-variables.css');
+@import url('./vendor-shared.css');
+
+/* Notifications Page Container */
+.vendor-notifications-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vendor-spacing-xl);
+  min-height: calc(100vh - var(--vendor-header-height));
+}
+
+/* Notifications Page Header */
+.vendor-notifications-page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.vendor-notifications-page__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--vendor-text-primary);
+  margin: 0 0 var(--vendor-spacing-xs) 0;
+}
+
+.vendor-notifications-page__subtitle {
+  font-size: 14px;
+  color: var(--vendor-text-secondary);
+  margin: 0;
+}
+
+/* Mark All as Read Button */
+.vendor-notifications-page__mark-all {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vendor-spacing-xs);
+  padding: var(--vendor-spacing-xs) var(--vendor-spacing-sm);
+  background: var(--vendor-bg-tertiary);
+  color: var(--vendor-text-primary);
+  border: 1px solid var(--vendor-border-light);
+  border-radius: var(--vendor-radius);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--vendor-transition-fast);
+}
+
+.vendor-notifications-page__mark-all:hover {
+  background: var(--vendor-bg-secondary);
+  border-color: var(--vendor-border-medium);
+}
+
+.vendor-notifications-page__mark-all svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Notifications List */
+.vendor-notifications-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vendor-spacing-xs);
+}
+
+/* Notification Item */
+.vendor-notification-item {
+  display: flex;
+  align-items: center;
+  gap: var(--vendor-spacing-md);
+  padding: var(--vendor-spacing-lg);
+  background: var(--vendor-bg-primary);
+  border: 1px solid var(--vendor-border-light);
+  border-radius: var(--vendor-radius-lg);
+  cursor: pointer;
+  transition: all var(--vendor-transition-fast);
+  text-decoration: none;
+  color: inherit;
+}
+
+.vendor-notification-item:hover {
+  border-color: var(--vendor-primary-500);
+  box-shadow: var(--vendor-shadow);
+}
+
+.vendor-notification-item.unread {
+  background: var(--vendor-primary-50);
+  border-color: var(--vendor-primary-100);
+}
+
+/* Notification Icon */
+.vendor-notification-item__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--vendor-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vendor-notification-item__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Notification Content */
+.vendor-notification-item__content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Notification Header */
+.vendor-notification-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--vendor-spacing-xs);
+}
+
+.vendor-notification-item__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--vendor-text-primary);
+  margin: 0;
+}
+
+.vendor-notification-item__time {
+  font-size: 11px;
+  color: var(--vendor-text-muted);
+}
+
+/* Notification Message */
+.vendor-notification-item__message {
+  font-size: 13px;
+  color: var(--vendor-text-secondary);
+  margin: 0 0 var(--vendor-spacing-xs) 0;
+}
+
+/* Notification Order Reference */
+.vendor-notification-item__order-ref {
+  font-size: 11px;
+  color: var(--vendor-brand);
+  font-weight: 600;
+}
+
+/* Unread Indicator */
+.vendor-notification-item__unread-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--vendor-radius-full);
+  background: var(--vendor-brand);
+  flex-shrink: 0;
+}
+
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .vendor-notifications-page {
+    padding: var(--vendor-spacing-md);
+  }
+  
+  .vendor-notifications-page__header {
+    flex-direction: column;
+    gap: var(--vendor-spacing-md);
+    align-items: stretch;
+    padding: 0;
+  }
+  
+  .vendor-notifications-page__title {
+    font-size: 20px;
+  }
+  
+  .vendor-notification-item {
+    padding: var(--vendor-spacing-md);
+    gap: var(--vendor-spacing-sm);
+  }
+  
+  .vendor-notification-item__icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .vendor-notification-item__title {
+    font-size: 13px;
+  }
+  
+  .vendor-notification-item__message {
+    font-size: 12px;
+  }
+}

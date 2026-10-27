@@ -1,0 +1,449 @@
+/* ===================================================================
+   Food Campus Vendor - Category Management
+   Modern SaaS Category Management Styles
+   =================================================================== */
+
+@import url('./vendor-variables.css');
+@import url('./vendor-shared.css');
+
+/* Category Management Container */
+.category-management {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vendor-spacing-xl);
+  min-height: calc(100vh - var(--vendor-header-height));
+}
+
+/* Category Management Header */
+.category-management__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--vendor-spacing-lg);
+  flex-wrap: wrap;
+  gap: var(--vendor-spacing-md);
+}
+
+.category-management__back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vendor-spacing-xs);
+  padding: var(--vendor-spacing-xs) var(--vendor-spacing-sm);
+  background: var(--vendor-bg-tertiary);
+  color: var(--vendor-text-primary);
+  border: 1px solid var(--vendor-border-light);
+  border-radius: var(--vendor-radius);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--vendor-transition-fast);
+  text-decoration: none;
+}
+
+.category-management__back-button:hover {
+  background: var(--vendor-bg-secondary);
+  border-color: var(--vendor-border-medium);
+}
+
+.category-management__back-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.category-management__title {
+  flex: 1;
+}
+
+.category-management__title h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--vendor-text-primary);
+  margin: 0 0 var(--vendor-spacing-xs) 0;
+}
+
+.category-management__title p {
+  font-size: 14px;
+  color: var(--vendor-text-secondary);
+  margin: 0;
+}
+
+/* Add Category Section */
+.category-management__add-section {
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius-lg);
+  box-shadow: var(--vendor-shadow);
+  border: 1px solid var(--vendor-border-light);
+  padding: var(--vendor-spacing-xl);
+}
+
+.category-management__add-section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--vendor-text-primary);
+  margin: 0 0 var(--vendor-spacing-lg) 0;
+}
+
+.category-management__add-form {
+  display: flex;
+  gap: var(--vendor-spacing-md);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.category-management__input {
+  flex: 1;
+  min-width: 200px;
+  padding: var(--vendor-spacing-sm) var(--vendor-spacing-md);
+  border: 1px solid var(--vendor-border-light);
+  border-radius: var(--vendor-radius);
+  font-size: 14px;
+  color: var(--vendor-text-primary);
+  background: var(--vendor-bg-primary);
+  transition: all var(--vendor-transition-fast);
+  font-family: inherit;
+}
+
+.category-management__input:focus {
+  outline: none;
+  border-color: var(--vendor-primary-500);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.category-management__input::placeholder {
+  color: var(--vendor-text-muted);
+}
+
+.category-management__input--error {
+  border-color: var(--vendor-error-500);
+}
+
+.category-management__button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vendor-spacing-xs);
+  padding: var(--vendor-spacing-sm) var(--vendor-spacing-md);
+  border: none;
+  border-radius: var(--vendor-radius);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--vendor-transition-fast);
+}
+
+.category-management__button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.category-management__button--primary {
+  background: var(--vendor-brand);
+  color: white;
+}
+
+.category-management__button--primary:hover:not(:disabled) {
+  background: var(--vendor-brand-dark);
+}
+
+.category-management__button--success {
+  background: var(--vendor-success-500);
+  color: white;
+}
+
+.category-management__button--success:hover:not(:disabled) {
+  background: var(--vendor-success-600);
+}
+
+.category-management__button--secondary {
+  background: var(--vendor-bg-tertiary);
+  color: var(--vendor-text-primary);
+  border: 1px solid var(--vendor-border-light);
+}
+
+.category-management__button--secondary:hover:not(:disabled) {
+  background: var(--vendor-bg-secondary);
+  border-color: var(--vendor-border-medium);
+}
+
+.category-management__button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.category-management__error {
+  display: block;
+  font-size: 12px;
+  color: var(--vendor-error-500);
+  margin-top: var(--vendor-spacing-xs);
+}
+
+/* Edit Category Section */
+.category-management__edit-section {
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius-lg);
+  box-shadow: var(--vendor-shadow);
+  border: 1px solid var(--vendor-border-light);
+  padding: var(--vendor-spacing-xl);
+  margin-top: var(--vendor-spacing-md);
+}
+
+.category-management__edit-section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--vendor-text-primary);
+  margin: 0 0 var(--vendor-spacing-lg) 0;
+}
+
+.category-management__edit-form {
+  display: flex;
+  gap: var(--vendor-spacing-md);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.category-management__edit-actions {
+  display: flex;
+  gap: var(--vendor-spacing-sm);
+}
+
+/* List Section */
+.category-management__list-section {
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius-lg);
+  box-shadow: var(--vendor-shadow);
+  border: 1px solid var(--vendor-border-light);
+  padding: var(--vendor-spacing-xl);
+}
+
+.category-management__list-section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--vendor-text-primary);
+  margin: 0 0 var(--vendor-spacing-lg) 0;
+}
+
+/* Empty State */
+.category-management__empty {
+  text-align: center;
+  padding: var(--vendor-spacing-3xl) var(--vendor-spacing-lg);
+  color: var(--vendor-text-secondary);
+}
+
+.category-management__empty p {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Table */
+.category-management__table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vendor-spacing-xs);
+}
+
+.category-management__table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  padding: var(--vendor-spacing-sm) var(--vendor-spacing-md);
+  border-bottom: 1px solid var(--vendor-border-light);
+}
+
+.category-management__th {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--vendor-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.category-management__table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+  padding: var(--vendor-spacing-sm) var(--vendor-spacing-md);
+  border-bottom: 1px solid var(--vendor-border-light);
+  transition: background var(--vendor-transition-fast);
+}
+
+.category-management__table-row:last-child {
+  border-bottom: none;
+}
+
+.category-management__table-row:hover {
+  background: var(--vendor-bg-secondary);
+}
+
+.category-management__td {
+  font-size: 13px;
+  color: var(--vendor-text-primary);
+}
+
+.category-management__td--name {
+  font-weight: 600;
+}
+
+.category-management__td--count {
+  text-align: center;
+}
+
+.category-management__td--actions {
+  display: flex;
+  gap: var(--vendor-spacing-xs);
+  justify-content: center;
+}
+
+/* Action Buttons */
+.category-management__action-button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--vendor-border-light);
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius-sm);
+  color: var(--vendor-text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--vendor-transition-fast);
+}
+
+.category-management__action-button:hover:not(:disabled) {
+  background: var(--vendor-bg-secondary);
+  border-color: var(--vendor-border-medium);
+  color: var(--vendor-text-primary);
+}
+
+.category-management__action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.category-management__action-button--danger:hover:not(:disabled) {
+  background: var(--vendor-error-50);
+  border-color: var(--vendor-error-500);
+  color: var(--vendor-error-700);
+}
+
+.category-management__action-button svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Global Error */
+.category-management__error--global {
+  margin-top: var(--vendor-spacing-md);
+}
+
+/* Quick Access */
+.category-management__quick-access {
+  margin-top: var(--vendor-spacing-md);
+}
+
+.category-management__quick-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vendor-spacing-xs);
+  color: var(--vendor-brand);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--vendor-transition-fast);
+}
+
+.category-management__quick-link:hover {
+  color: var(--vendor-brand-dark);
+}
+
+.category-management__quick-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .category-management {
+    padding: var(--vendor-spacing-md);
+  }
+  
+  .category-management__header {
+    flex-direction: column;
+    gap: var(--vendor-spacing-md);
+    align-items: stretch;
+  }
+  
+  .category-management__title h2 {
+    font-size: 20px;
+  }
+  
+  .category-management__add-section,
+  .category-management__edit-section,
+  .category-management__list-section {
+    padding: var(--vendor-spacing-md);
+  }
+  
+  .category-management__add-form,
+  .category-management__edit-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .category-management__input {
+    min-width: 100%;
+  }
+  
+  .category-management__edit-actions {
+    flex-direction: column;
+  }
+  
+  .category-management__button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .category-management__table-header,
+  .category-management__table-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .category-management__td--actions {
+    grid-column: span 2;
+    justify-content: center;
+    gap: var(--vendor-spacing-sm);
+  }
+  
+  .category-management__action-button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-management__title h2 {
+    font-size: 18px;
+  }
+  
+  .category-management__add-section h3,
+  .category-management__edit-section h3,
+  .category-management__list-section h3 {
+    font-size: 14px;
+  }
+  
+  .category-management__table-header,
+  .category-management__table-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .category-management__td--name {
+    text-align: center;
+  }
+  
+  .category-management__td--count {
+    text-align: center;
+  }
+  
+  .category-management__td--actions {
+    grid-column: span 1;
+  }
+}

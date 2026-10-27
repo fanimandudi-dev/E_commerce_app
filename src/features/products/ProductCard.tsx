@@ -5,6 +5,7 @@ import type { Product } from '../../domain/models'
 import { useCartStore } from '../cart/cartStore'
 import { VendorSwitchDialog } from '../cart/VendorSwitchDialog'
 import { formatPrice } from '../../utils/format'
+import './ProductCard.css'
 
 export function ProductCard({ product, horizontal = false }: { product: Product; horizontal?: boolean }) {
   const { vendor: cartVendor, addItem, replaceWith } = useCartStore()

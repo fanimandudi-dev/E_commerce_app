@@ -1,181 +1,175 @@
-/* Recent Order Component */
+/* ===================================================================
+   Food Campus Vendor - Recent Order
+   Modern SaaS Recent Order Component
+   =================================================================== */
+
+@import url('./vendor-variables.css');
+@import url('./vendor-shared.css');
+
+/* Recent Order Card */
 .recent-order {
-  background: white;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 12px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
-  transition: all 0.2s ease;
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius);
+  padding: var(--vendor-spacing-md);
+  border: 1px solid var(--vendor-border-light);
+  transition: all var(--vendor-transition);
+  cursor: pointer;
 }
 
 .recent-order:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: var(--vendor-primary-500);
+  box-shadow: var(--vendor-shadow);
+  transform: translateY(-1px);
 }
 
+/* Recent Order Header */
 .recent-order__header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 12px;
-}
-
-.recent-order__info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  margin-bottom: var(--vendor-spacing-sm);
 }
 
 .recent-order__id {
   font-size: 14px;
-  font-weight: 600;
-  color: #1f2937;
-}
-
-.recent-order__date {
-  font-size: 12px;
-  color: #6b7280;
+  font-weight: 700;
+  color: var(--vendor-brand);
 }
 
 .recent-order__status {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 4px 8px;
-  border-radius: 4px;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--vendor-radius-full);
+  font-size: 10px;
+  font-weight: 600;
 }
 
-.recent-order__status-icon {
-  display: flex;
-  align-items: center;
+.recent-order__status--pending {
+  background: var(--vendor-warning-50);
+  color: var(--vendor-warning-700);
 }
 
-/* Status Colors */
-.recent-order--completed .recent-order__status {
-  background: #dcfce7;
-  color: #16a34a;
+.recent-order__status--preparing {
+  background: var(--vendor-info-50);
+  color: var(--vendor-info-700);
 }
 
-.recent-order--pending .recent-order__status {
-  background: #fef3c7;
-  color: #d97706;
+.recent-order__status--ready {
+  background: var(--vendor-success-50);
+  color: var(--vendor-success-700);
 }
 
-.recent-order--cancelled .recent-order__status {
-  background: #fee2e2;
-  color: #dc2626;
+.recent-order__status--completed {
+  background: var(--vendor-success-50);
+  color: var(--vendor-success-700);
 }
 
+.recent-order__status--cancelled {
+  background: var(--vendor-error-50);
+  color: var(--vendor-error-700);
+}
+
+/* Recent Order Time */
+.recent-order__time {
+  font-size: 11px;
+  color: var(--vendor-text-muted);
+}
+
+/* Recent Order Body */
 .recent-order__body {
-  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--vendor-spacing-xs);
+  margin-bottom: var(--vendor-spacing-sm);
 }
 
 .recent-order__customer {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-bottom: 12px;
-}
-
-.recent-order__customer-name {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  color: #1f2937;
-}
-
-.recent-order__customer-email {
-  font-size: 12px;
-  color: #6b7280;
+  color: var(--vendor-text-primary);
 }
 
 .recent-order__items {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  font-size: 12px;
+  color: var(--vendor-text-muted);
 }
 
-.recent-order__item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-}
-
-.recent-order__item-name {
-  color: #4b5563;
-}
-
-.recent-order__item-price {
-  color: #1f2937;
-  font-weight: 500;
-}
-
+/* Recent Order Footer */
 .recent-order__footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 12px;
-  border-top: 1px solid #f3f4f6;
 }
 
 .recent-order__total {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   font-size: 14px;
-}
-
-.recent-order__total span:first-child {
-  color: #6b7280;
-}
-
-.recent-order__total-amount {
   font-weight: 700;
-  color: #1f2937;
+  color: var(--vendor-brand);
 }
 
 .recent-order__actions {
-  background: none;
-  border: none;
+  display: flex;
+  gap: var(--vendor-spacing-xs);
+}
+
+.recent-order__action {
+  padding: 4px 8px;
+  border-radius: var(--vendor-radius-sm);
+  font-size: 10px;
+  font-weight: 600;
   cursor: pointer;
-  color: #9ca3af;
-  padding: 4px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
+  transition: all var(--vendor-transition-fast);
+  border: 1px solid transparent;
 }
 
-.recent-order__actions:hover {
-  background: #f3f4f6;
-  color: #6b7280;
+.recent-order__action--view {
+  background: var(--vendor-info-50);
+  color: var(--vendor-info-700);
 }
 
-.recent-order__actions:focus {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
+.recent-order__action--view:hover {
+  background: var(--vendor-info-100);
 }
 
-/* Responsive */
+.recent-order__action--accept {
+  background: var(--vendor-success-50);
+  color: var(--vendor-success-700);
+}
+
+.recent-order__action--accept:hover {
+  background: var(--vendor-success-100);
+}
+
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
+
 @media (max-width: 768px) {
   .recent-order {
-    padding: 12px;
+    padding: var(--vendor-spacing-sm);
   }
   
-  .recent-order__header {
-    flex-direction: column;
-    gap: 8px;
+  .recent-order__id {
+    font-size: 13px;
   }
   
   .recent-order__status {
-    align-self: flex-start;
+    font-size: 9px;
+    padding: 1px 6px;
   }
   
-  .recent-order__item-name {
+  .recent-order__customer {
     font-size: 12px;
   }
   
-  .recent-order__item-price {
-    font-size: 12px;
+  .recent-order__total {
+    font-size: 13px;
+  }
+  
+  .recent-order__action {
+    padding: 2px 6px;
+    font-size: 9px;
   }
 }

@@ -1,6 +1,7 @@
 import { ArrowRight, Store } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { Vendor } from '../../domain/models'
+import './VendorCard.css'
 
 export function VendorCard({ vendor, productCount }: { vendor: Vendor; productCount?: number }) {
   return <article className="vendor-card">

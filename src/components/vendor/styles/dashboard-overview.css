@@ -1,0 +1,66 @@
+/* ===================================================================
+   Food Campus Vendor - Dashboard Overview
+   Modern SaaS Dashboard Overview Styles
+   =================================================================== */
+
+@import url('./vendor-variables.css');
+@import url('./vendor-shared.css');
+
+/* Dashboard Overview Container */
+.dashboard-overview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vendor-spacing-xl);
+}
+
+/* Overview Header */
+.dashboard-overview__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--vendor-spacing-lg);
+}
+
+.dashboard-overview__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--vendor-text-primary);
+  margin: 0;
+}
+
+.dashboard-overview__actions {
+  display: flex;
+  gap: var(--vendor-spacing-sm);
+}
+
+/* Overview Grid */
+.dashboard-overview__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--vendor-spacing-lg);
+}
+
+/* Overview Card */
+.dashboard-overview__card {
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius-lg);
+  box-shadow: var(--vendor-shadow);
+  border: 1px solid var(--vendor-border-light);
+  padding: var(--vendor-spacing-xl);
+  transition: all var(--vendor-transition);
+}
+
+.dashboard-overview__card:hover {
+  box-shadow: var(--vendor-shadow-md);
+  transform: translateY(-2px);
+}
+
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .dashboard-overview__grid {
+    grid-template-columns: 1fr;
+  }
+}

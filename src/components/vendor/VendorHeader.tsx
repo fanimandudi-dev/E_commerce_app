@@ -1,12 +1,15 @@
-import { Link, useLocation } from 'react-router-dom'
-import { Bell, QrCode, Search, UserRound } from 'lucide-react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Bell, QrCode, Search, UserRound, LogOut } from 'lucide-react'
 import { useVendorStore } from '../../features/vendor/vendorStore'
 import { useAuthStore } from '../../features/auth/authStore'
+import './styles/vendor-header.css'
 
 export function VendorHeader() {
   const location = useLocation()
+  const navigate = useNavigate()
   const currentVendor = useVendorStore(state => state.currentVendor)
   const user = useAuthStore(state => state.user)
+  const logout = useAuthStore(state => state.logout)
 
   // Extraire le titre de la page à partir du pathname
   const getPageTitle = () => {
@@ -66,6 +69,19 @@ export function VendorHeader() {
             <span className="vendor-user-role">Vendeur</span>
           </div>
         </div>
+        
+        {/* Logout */}
+        <button 
+          onClick={() => {
+            logout()
+            navigate('/login')
+          }}
+          className="vendor-header__action"
+          aria-label="Déconnexion"
+        >
+          <LogOut size={20} />
+          <span className="vendor-action-tooltip">Déconnexion</span>
+        </button>
       </div>
     </header>
   )

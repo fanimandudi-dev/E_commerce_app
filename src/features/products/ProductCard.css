@@ -1,0 +1,358 @@
+/* ===================================================================
+   Food Campus - Product Card Styles
+   Modern SaaS Design for Student Marketplace
+   =================================================================== */
+
+/* Import Design System Variables */
+@import url('../../components/vendor/styles/vendor-variables.css');
+@import url('../../components/vendor/styles/vendor-shared.css');
+
+/* ===================================================================
+   Product Card Container
+   =================================================================== */
+.product-card {
+  min-width: 0;
+  border-radius: var(--vendor-radius-xl);
+  overflow: hidden;
+  background: var(--vendor-bg-primary);
+  border: 1px solid var(--vendor-border-light);
+  box-shadow: var(--vendor-shadow);
+  transition: all var(--vendor-transition-normal) ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--vendor-shadow-lg);
+  border-color: var(--vendor-primary-300);
+}
+
+.product-card.is-unavailable {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Horizontal Variant */
+.product-card--horizontal {
+  display: flex;
+  gap: var(--vendor-spacing-md);
+}
+
+.product-card--horizontal .product-card__image-wrap {
+  flex: 0 0 100px;
+  height: 100px;
+}
+
+.product-card--horizontal .product-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===================================================================
+   Product Image
+   =================================================================== */
+.product-card__image-wrap {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  background: var(--vendor-gray-50);
+  display: block;
+}
+
+.product-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--vendor-transition-slow) ease;
+}
+
+.product-card:hover .product-card__image {
+  transform: scale(1.05);
+}
+
+/* ===================================================================
+   Product Badge
+   =================================================================== */
+.product-card__badge {
+  position: absolute;
+  top: var(--vendor-spacing-sm);
+  left: var(--vendor-spacing-sm);
+  border-radius: var(--vendor-radius-full);
+  padding: 6px 10px;
+  background: var(--vendor-bg-primary);
+  color: var(--vendor-primary-600);
+  font-size: 10px;
+  font-weight: 800;
+  box-shadow: var(--vendor-shadow);
+  white-space: nowrap;
+  z-index: 1;
+}
+
+/* ===================================================================
+   Unavailable Overlay
+   =================================================================== */
+.product-card__unavailable {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vendor-bg-primary);
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: var(--vendor-radius-xl);
+  z-index: 2;
+}
+
+/* ===================================================================
+   Product Body
+   =================================================================== */
+.product-card__body {
+  padding: var(--vendor-spacing-md);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 var(--vendor-spacing-xs);
+  color: var(--vendor-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.product-card__vendor {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--vendor-text-secondary);
+  font-size: 11px;
+  margin-bottom: var(--vendor-spacing-xs);
+  text-decoration: none;
+}
+
+.product-card__vendor:hover {
+  color: var(--vendor-primary-600);
+}
+
+.product-card__vendor svg {
+  color: var(--vendor-primary-500);
+}
+
+/* ===================================================================
+   Product Meta
+   =================================================================== */
+.product-card__meta {
+  display: flex;
+  gap: var(--vendor-spacing-md);
+  font-size: 11px;
+  color: var(--vendor-text-tertiary);
+  margin-bottom: var(--vendor-spacing-sm);
+}
+
+.product-card__meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.product-card__meta span:first-child {
+  color: var(--vendor-warning-600);
+}
+
+.product-card__meta svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ===================================================================
+   Product Footer
+   =================================================================== */
+.product-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: var(--vendor-spacing-sm);
+  border-top: 1px solid var(--vendor-border-light);
+}
+
+.product-card__footer strong {
+  color: var(--vendor-primary-600);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.product-card__footer button {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--vendor-radius);
+  background: var(--vendor-primary-500);
+  color: var(--vendor-bg-primary);
+  border: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all var(--vendor-transition-normal) ease;
+  position: relative;
+}
+
+.product-card__footer button:hover:not(:disabled) {
+  background: var(--vendor-primary-600);
+  transform: scale(1.05);
+}
+
+.product-card__footer button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.product-card__footer button.is-added {
+  background: var(--vendor-success-500);
+}
+
+.product-card__footer button.has-conflict {
+  background: var(--vendor-warning-500);
+}
+
+.product-card__footer button svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .product-card__image-wrap {
+    height: 160px;
+  }
+  
+  .product-card h3 {
+    font-size: 13px;
+  }
+  
+  .product-card__meta {
+    font-size: 10px;
+    gap: var(--vendor-spacing-sm);
+  }
+  
+  .product-card__footer strong {
+    font-size: 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .product-card__image-wrap {
+    height: 140px;
+  }
+  
+  .product-card h3 {
+    font-size: 12px;
+  }
+  
+  .product-card__vendor {
+    font-size: 10px;
+  }
+  
+  .product-card__meta {
+    font-size: 9px;
+  }
+  
+  .product-card__footer strong {
+    font-size: 13px;
+  }
+  
+  .product-card__footer button {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .product-card__image-wrap {
+    height: 120px;
+  }
+  
+  .product-card h3 {
+    font-size: 11px;
+  }
+  
+  .product-card__meta {
+    display: none;
+  }
+  
+  .product-card__footer strong {
+    font-size: 12px;
+  }
+}
+
+/* ===================================================================
+   Dark Theme Support
+   =================================================================== */
+@media (prefers-color-scheme: dark) {
+  .product-card {
+    background: var(--vendor-gray-900);
+    border-color: var(--vendor-gray-800);
+  }
+  
+  .product-card__image-wrap {
+    background: var(--vendor-gray-800);
+  }
+  
+  .product-card__badge {
+    background: var(--vendor-gray-800);
+    color: var(--vendor-primary-400);
+  }
+  
+  .product-card h3 {
+    color: var(--vendor-text-primary);
+  }
+  
+  .product-card__vendor {
+    color: var(--vendor-text-secondary);
+  }
+  
+  .product-card__vendor svg {
+    color: var(--vendor-primary-400);
+  }
+  
+  .product-card__meta {
+    color: var(--vendor-text-tertiary);
+  }
+  
+  .product-card__meta span:first-child {
+    color: var(--vendor-warning-400);
+  }
+  
+  .product-card__body {
+    border-top-color: var(--vendor-gray-800);
+  }
+  
+  .product-card__footer strong {
+    color: var(--vendor-primary-400);
+  }
+  
+  .product-card__footer button {
+    background: var(--vendor-primary-600);
+    color: var(--vendor-bg-primary);
+  }
+  
+  .product-card__footer button.is-added {
+    background: var(--vendor-success-600);
+  }
+  
+  .product-card__footer button.has-conflict {
+    background: var(--vendor-warning-600);
+  }
+}

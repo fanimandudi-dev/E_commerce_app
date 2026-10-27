@@ -1,130 +1,177 @@
-/* Stat Card Component */
+/* ===================================================================
+   Food Campus Vendor - Stat Card
+   Modern SaaS Stat Card Component
+   =================================================================== */
+
+@import url('./vendor-variables.css');
+
+/* Stat Card Container */
 .stat-card {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  display: flex;
-  gap: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
-  transition: all 0.2s ease;
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius-lg);
+  padding: var(--vendor-spacing-xl);
+  border: 1px solid var(--vendor-border-light);
+  transition: all var(--vendor-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--vendor-primary-400), var(--vendor-primary-600));
+  transform: scaleX(0);
+  transition: transform var(--vendor-transition);
 }
 
 .stat-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--vendor-shadow-md);
   transform: translateY(-2px);
 }
 
+.stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Icon Container */
 .stat-card__icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--vendor-radius);
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  margin-bottom: var(--vendor-spacing-md);
+  transition: transform var(--vendor-transition);
 }
 
-.stat-card__content {
-  flex: 1;
-  min-width: 0;
+.stat-card:hover .stat-card__icon {
+  transform: scale(1.1);
 }
 
-.stat-card__title {
-  font-size: 13px;
-  font-weight: 500;
-  color: #6b7280;
-  display: block;
-  margin-bottom: 4px;
+.stat-card__icon svg {
+  width: 22px;
+  height: 22px;
 }
 
-.stat-card__value-row {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  margin-bottom: 8px;
+/* Icon Colors */
+.stat-card__icon--green {
+  background: linear-gradient(135deg, var(--vendor-success-50) 0%, var(--vendor-success-100) 100%);
+  color: var(--vendor-success-600);
 }
 
+.stat-card__icon--blue {
+  background: linear-gradient(135deg, var(--vendor-info-50) 0%, var(--vendor-info-100) 100%);
+  color: var(--vendor-info-600);
+}
+
+.stat-card__icon--purple {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  color: #7c3aed;
+}
+
+.stat-card__icon--orange {
+  background: linear-gradient(135deg, var(--vendor-warning-50) 0%, var(--vendor-warning-100) 100%);
+  color: var(--vendor-warning-600);
+}
+
+.stat-card__icon--red {
+  background: linear-gradient(135deg, var(--vendor-error-50) 0%, var(--vendor-error-100) 100%);
+  color: var(--vendor-error-600);
+}
+
+/* Value */
 .stat-card__value {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
-  color: #1f2937;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  color: var(--vendor-text-primary);
+  margin: 0 0 var(--vendor-spacing-xs) 0;
+  line-height: 1.2;
 }
 
+/* Label */
+.stat-card__label {
+  font-size: 12px;
+  color: var(--vendor-text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Change Indicator */
 .stat-card__change {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 12px;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  padding: 2px 6px;
-  border-radius: 4px;
+  margin-top: var(--vendor-spacing-sm);
+  padding: 4px 10px;
+  border-radius: var(--vendor-radius-full);
 }
 
 .stat-card__change--positive {
-  background: #dcfce7;
-  color: #16a34a;
+  background: var(--vendor-success-50);
+  color: var(--vendor-success-700);
 }
 
 .stat-card__change--negative {
-  background: #fee2e2;
-  color: #dc2626;
+  background: var(--vendor-error-50);
+  color: var(--vendor-error-700);
 }
 
 .stat-card__change--neutral {
-  background: #f3f4f6;
-  color: #6b7280;
+  background: var(--vendor-bg-tertiary);
+  color: var(--vendor-text-muted);
 }
 
+.stat-card__change svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Progress Bar */
 .stat-card__progress {
-  height: 4px;
-  background: #e5e7eb;
-  border-radius: 2px;
+  margin-top: var(--vendor-spacing-md);
+  height: 6px;
+  background: var(--vendor-bg-tertiary);
+  border-radius: var(--vendor-radius-full);
   overflow: hidden;
 }
 
 .stat-card__progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, #2d5a3d 0%, #16a34a 100%);
-  border-radius: 2px;
-  transition: width 0.5s ease;
+  border-radius: var(--vendor-radius-full);
+  transition: width var(--vendor-transition-slow);
 }
 
-/* Color Variants */
-.stat-card--green .stat-card__icon {
-  background: #dcfce7;
-  color: #16a34a;
+.stat-card__progress-bar--green {
+  background: linear-gradient(90deg, var(--vendor-success-500), var(--vendor-success-600));
 }
 
-.stat-card--blue .stat-card__icon {
-  background: #dbeafe;
-  color: #2563eb;
+.stat-card__progress-bar--blue {
+  background: linear-gradient(90deg, var(--vendor-info-500), var(--vendor-info-600));
 }
 
-.stat-card--purple .stat-card__icon {
-  background: #f3e8ff;
-  color: #9333ea;
+.stat-card__progress-bar--purple {
+  background: linear-gradient(90deg, #8b5cf6, #7c3aed);
 }
 
-.stat-card--orange .stat-card__icon {
-  background: #fef3c7;
-  color: #d97706;
+.stat-card__progress-bar--orange {
+  background: linear-gradient(90deg, var(--vendor-warning-500), var(--vendor-warning-600));
 }
 
-.stat-card--red .stat-card__icon {
-  background: #fee2e2;
-  color: #dc2626;
-}
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
 
-/* Responsive */
 @media (max-width: 768px) {
   .stat-card {
-    padding: 16px;
-    gap: 12px;
+    padding: var(--vendor-spacing-lg);
   }
   
   .stat-card__icon {
@@ -132,22 +179,22 @@
     height: 40px;
   }
   
+  .stat-card__icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
   .stat-card__value {
-    font-size: 20px;
-  }
-  
-  .stat-card__title {
-    font-size: 12px;
-  }
-  
-  .stat-card__change {
-    font-size: 11px;
+    font-size: 24px;
   }
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .stat-card:hover {
-    transform: none;
+@media (max-width: 480px) {
+  .stat-card {
+    padding: var(--vendor-spacing-md);
+  }
+  
+  .stat-card__value {
+    font-size: 20px;
   }
 }

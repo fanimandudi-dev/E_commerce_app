@@ -1,0 +1,66 @@
+/* ===================================================================
+   Food Campus Vendor - Orders Table
+   Modern SaaS Orders Table Component
+   =================================================================== */
+
+@import url('./vendor-variables.css');
+@import url('./vendor-shared.css');
+
+/* Orders Table Container */
+.orders-table {
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius-lg);
+  box-shadow: var(--vendor-shadow);
+  border: 1px solid var(--vendor-border-light);
+  overflow: hidden;
+}
+
+/* Orders Table */
+.orders-table__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table__thead {
+  background: var(--vendor-bg-secondary);
+}
+
+.orders-table__th {
+  padding: var(--vendor-spacing-md) var(--vendor-spacing-lg);
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--vendor-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--vendor-border-light);
+}
+
+.orders-table__tbody {
+}
+
+.orders-table__tr {
+  border-bottom: 1px solid var(--vendor-border-light);
+  transition: background var(--vendor-transition-fast);
+}
+
+.orders-table__tr:hover {
+  background: var(--vendor-bg-secondary);
+}
+
+.orders-table__td {
+  padding: var(--vendor-spacing-md) var(--vendor-spacing-lg);
+  font-size: 13px;
+  color: var(--vendor-text-primary);
+}
+
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .orders-table__th,
+  .orders-table__td {
+    padding: var(--vendor-spacing-sm);
+  }
+}

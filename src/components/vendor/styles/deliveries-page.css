@@ -1,0 +1,261 @@
+/* ===================================================================
+   Food Campus Vendor - Deliveries Page
+   Modern SaaS Deliveries Page Styles
+   =================================================================== */
+
+@import url('./vendor-variables.css');
+@import url('./vendor-shared.css');
+
+/* Deliveries Page Container */
+.vendor-deliveries-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vendor-spacing-xl);
+  min-height: calc(100vh - var(--vendor-header-height));
+}
+
+/* Deliveries Page Header */
+.vendor-deliveries-page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.vendor-deliveries-page__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--vendor-text-primary);
+  margin: 0 0 var(--vendor-spacing-xs) 0;
+}
+
+.vendor-deliveries-page__subtitle {
+  font-size: 14px;
+  color: var(--vendor-text-secondary);
+  margin: 0;
+}
+
+/* Search */
+.vendor-deliveries-page__search {
+  position: relative;
+  margin-bottom: var(--vendor-spacing-lg);
+  max-width: 400px;
+}
+
+.vendor-deliveries-page__search-input {
+  width: 100%;
+  padding: var(--vendor-spacing-sm) var(--vendor-spacing-md);
+  padding-left: 36px;
+  border: 1px solid var(--vendor-border-light);
+  border-radius: var(--vendor-radius);
+  font-size: 14px;
+  color: var(--vendor-text-primary);
+  background: var(--vendor-bg-primary);
+  transition: all var(--vendor-transition-fast);
+}
+
+.vendor-deliveries-page__search-input:focus {
+  outline: none;
+  border-color: var(--vendor-primary-500);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.vendor-deliveries-page__search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--vendor-text-muted);
+}
+
+/* Deliveries List */
+.vendor-deliveries-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vendor-spacing-md);
+}
+
+/* Delivery Card */
+.vendor-delivery-card {
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius-lg);
+  box-shadow: var(--vendor-shadow);
+  border: 1px solid var(--vendor-border-light);
+  padding: var(--vendor-spacing-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--vendor-transition);
+}
+
+.vendor-delivery-card:hover {
+  box-shadow: var(--vendor-shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--vendor-primary-500);
+}
+
+/* Delivery Card Header */
+.vendor-delivery-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--vendor-spacing-md);
+}
+
+.vendor-delivery-card__info {
+  display: flex;
+  align-items: center;
+  gap: var(--vendor-spacing-md);
+}
+
+.vendor-delivery-card__id {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--vendor-text-primary);
+}
+
+.vendor-delivery-card__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--vendor-radius-full);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.vendor-delivery-card__status--preparing {
+  background: var(--vendor-warning-50);
+  color: var(--vendor-warning-700);
+}
+
+.vendor-delivery-card__status--ready {
+  background: var(--vendor-success-50);
+  color: var(--vendor-success-700);
+}
+
+.vendor-delivery-card__status--out_for_delivery {
+  background: var(--vendor-info-50);
+  color: var(--vendor-info-700);
+}
+
+.vendor-delivery-card__time {
+  font-size: 12px;
+  color: var(--vendor-text-muted);
+}
+
+/* Delivery Card Body */
+.vendor-delivery-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vendor-spacing-sm);
+  margin-bottom: var(--vendor-spacing-md);
+}
+
+.vendor-delivery-card__customer {
+  display: flex;
+  flex-direction: column;
+}
+
+.vendor-delivery-card__customer-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--vendor-text-primary);
+}
+
+.vendor-delivery-card__customer-phone {
+  font-size: 12px;
+  color: var(--vendor-text-muted);
+}
+
+.vendor-delivery-card__location {
+  display: flex;
+  align-items: center;
+  gap: var(--vendor-spacing-xs);
+  font-size: 13px;
+  color: var(--vendor-text-secondary);
+}
+
+.vendor-delivery-card__location svg {
+  width: 14px;
+  height: 14px;
+  color: var(--vendor-text-muted);
+}
+
+/* Delivery Card Footer */
+.vendor-delivery-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--vendor-spacing-md);
+  border-top: 1px solid var(--vendor-border-light);
+}
+
+.vendor-delivery-card__items {
+  font-size: 12px;
+  color: var(--vendor-text-muted);
+}
+
+.vendor-delivery-card__total {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--vendor-brand);
+}
+
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .vendor-deliveries-page {
+    padding: var(--vendor-spacing-md);
+  }
+  
+  .vendor-deliveries-page__header {
+    flex-direction: column;
+    gap: var(--vendor-spacing-md);
+    align-items: stretch;
+    padding: 0;
+  }
+  
+  .vendor-deliveries-page__title {
+    font-size: 20px;
+  }
+  
+  .vendor-deliveries-page__search {
+    max-width: none;
+  }
+  
+  .vendor-delivery-card {
+    padding: var(--vendor-spacing-md);
+  }
+  
+  .vendor-delivery-card__header {
+    flex-direction: column;
+    gap: var(--vendor-spacing-sm);
+    align-items: flex-start;
+  }
+  
+  .vendor-delivery-card__info {
+    flex-direction: column;
+    gap: var(--vendor-spacing-xs);
+    align-items: flex-start;
+  }
+  
+  .vendor-delivery-card__status {
+    align-self: flex-start;
+  }
+  
+  .vendor-delivery-card__time {
+    align-self: flex-start;
+  }
+  
+  .vendor-delivery-card__footer {
+    flex-direction: column;
+    gap: var(--vendor-spacing-sm);
+    align-items: flex-start;
+    padding-top: var(--vendor-spacing-sm);
+  }
+}

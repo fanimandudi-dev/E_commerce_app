@@ -7,6 +7,7 @@ import { useVendorProducts } from '../features/products/useProducts'
 import { useCartStore } from '../features/cart/cartStore'
 import { useVendor } from '../features/vendors/useVendors'
 import { categories } from '../mocks/data'
+import './VendorDetailPage.css'
 
 export function VendorDetailPage() {
   const { id } = useParams()

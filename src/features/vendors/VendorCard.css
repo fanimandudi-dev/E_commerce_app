@@ -1,0 +1,335 @@
+/* ===================================================================
+   Food Campus - Vendor Card Styles
+   Modern SaaS Design for Student Marketplace
+   =================================================================== */
+
+/* Import Design System Variables */
+@import url('../../components/vendor/styles/vendor-variables.css');
+@import url('../../components/vendor/styles/vendor-shared.css');
+
+/* ===================================================================
+   Vendor Card Container
+   =================================================================== */
+.vendor-card {
+  min-width: 0;
+  border-radius: var(--vendor-radius-xl);
+  overflow: hidden;
+  background: var(--vendor-bg-primary);
+  border: 1px solid var(--vendor-border-light);
+  box-shadow: var(--vendor-shadow);
+  transition: all var(--vendor-transition-normal) ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.vendor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--vendor-shadow-lg);
+  border-color: var(--vendor-primary-300);
+}
+
+/* ===================================================================
+   Vendor Card Image
+   =================================================================== */
+.vendor-card__image {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+  display: block;
+  background: var(--vendor-gray-100);
+}
+
+.vendor-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--vendor-transition-slow) ease;
+}
+
+.vendor-card:hover .vendor-card__image img {
+  transform: scale(1.05);
+}
+
+/* ===================================================================
+   Vendor Status Badge
+   =================================================================== */
+.vendor-status {
+  position: absolute;
+  top: var(--vendor-spacing-sm);
+  right: var(--vendor-spacing-sm);
+  border-radius: var(--vendor-radius-full);
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--vendor-success-600);
+  font-size: 10px;
+  font-weight: 800;
+  box-shadow: var(--vendor-shadow);
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.vendor-status:not(.is-active) {
+  color: var(--vendor-error-600);
+}
+
+/* ===================================================================
+   Vendor Card Body
+   =================================================================== */
+.vendor-card__body {
+  padding: var(--vendor-spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--vendor-spacing-md);
+  flex: 1;
+}
+
+/* ===================================================================
+   Vendor Avatar
+   =================================================================== */
+.vendor-avatar {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: var(--vendor-radius-lg);
+  background: var(--vendor-primary-100);
+  color: var(--vendor-primary-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* ===================================================================
+   Vendor Identity
+   =================================================================== */
+.vendor-card__identity {
+  flex: 1;
+  min-width: 0;
+}
+
+.vendor-card__identity h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 2px;
+  color: var(--vendor-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vendor-card__identity h3:hover {
+  color: var(--vendor-primary-600);
+}
+
+.vendor-card__identity p {
+  font-size: 12px;
+  color: var(--vendor-text-secondary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===================================================================
+   Vendor Card Link (Arrow)
+   =================================================================== */
+.vendor-card__link {
+  color: var(--vendor-text-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--vendor-transition-normal) ease;
+}
+
+.vendor-card__link:hover {
+  color: var(--vendor-primary-600);
+  transform: translateX(4px);
+}
+
+/* ===================================================================
+   Vendor Card Footer
+   =================================================================== */
+.vendor-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: var(--vendor-spacing-sm) var(--vendor-spacing-md);
+  border-top: 1px solid var(--vendor-border-light);
+  color: var(--vendor-text-secondary);
+  font-size: 12px;
+  background: var(--vendor-gray-50);
+}
+
+.vendor-card__foot svg {
+  color: var(--vendor-primary-500);
+}
+
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .vendor-card__image {
+    height: 140px;
+  }
+  
+  .vendor-avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+  }
+  
+  .vendor-card__identity h3 {
+    font-size: 15px;
+  }
+  
+  .vendor-card__identity p {
+    font-size: 11px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .vendor-card__image {
+    height: 120px;
+  }
+  
+  .vendor-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+  
+  .vendor-card__identity h3 {
+    font-size: 14px;
+  }
+  
+  .vendor-card__identity p {
+    font-size: 10px;
+  }
+  
+  .vendor-card__foot {
+    font-size: 11px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .vendor-card__image {
+    height: 100px;
+  }
+  
+  .vendor-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+  
+  .vendor-card__identity h3 {
+    font-size: 13px;
+  }
+  
+  .vendor-card__identity p {
+    display: none;
+  }
+  
+  .vendor-card__foot {
+    display: none;
+  }
+}
+
+/* ===================================================================
+   Horizontal Variant
+   =================================================================== */
+.vendor-card--horizontal {
+  flex-direction: row;
+  max-width: 100%;
+}
+
+.vendor-card--horizontal .vendor-card__image {
+  flex: 0 0 120px;
+  height: 100%;
+}
+
+.vendor-card--horizontal .vendor-card__body {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.vendor-card--horizontal .vendor-card__foot {
+  margin-top: auto;
+  padding-top: var(--vendor-spacing-sm);
+  border-top: 1px solid var(--vendor-border-light);
+  border-left: none;
+  width: 100%;
+}
+
+.vendor-card--horizontal .vendor-card__link {
+  position: absolute;
+  top: var(--vendor-spacing-md);
+  right: var(--vendor-spacing-md);
+}
+
+/* ===================================================================
+   Dark Theme Support
+   =================================================================== */
+@media (prefers-color-scheme: dark) {
+  .vendor-card {
+    background: var(--vendor-gray-900);
+    border-color: var(--vendor-gray-800);
+  }
+  
+  .vendor-card__image {
+    background: var(--vendor-gray-800);
+  }
+  
+  .vendor-status {
+    background: rgba(0, 0, 0, 0.9);
+    color: var(--vendor-success-400);
+  }
+  
+  .vendor-status:not(.is-active) {
+    color: var(--vendor-error-400);
+  }
+  
+  .vendor-avatar {
+    background: var(--vendor-primary-900);
+    color: var(--vendor-primary-300);
+  }
+  
+  .vendor-card__identity h3 {
+    color: var(--vendor-text-primary);
+  }
+  
+  .vendor-card__identity h3:hover {
+    color: var(--vendor-primary-400);
+  }
+  
+  .vendor-card__identity p {
+    color: var(--vendor-text-secondary);
+  }
+  
+  .vendor-card__link {
+    color: var(--vendor-text-tertiary);
+  }
+  
+  .vendor-card__link:hover {
+    color: var(--vendor-primary-400);
+  }
+  
+  .vendor-card__foot {
+    background: var(--vendor-gray-800);
+    border-top-color: var(--vendor-gray-700);
+    color: var(--vendor-text-secondary);
+  }
+  
+  .vendor-card__foot svg {
+    color: var(--vendor-primary-400);
+  }
+}

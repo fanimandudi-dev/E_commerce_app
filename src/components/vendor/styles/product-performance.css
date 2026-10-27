@@ -1,196 +1,98 @@
-/* Product Performance Component */
+/* ===================================================================
+   Food Campus Vendor - Product Performance
+   Modern SaaS Product Performance Component
+   =================================================================== */
+
+@import url('./vendor-variables.css');
+@import url('./vendor-shared.css');
+
+/* Product Performance Card */
 .product-performance {
-  display: grid;
-  grid-template-columns: 32px 48px 1fr 80px 60px 80px;
-  align-items: center;
-  gap: 12px;
-  padding: 12px;
-  background: white;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
-  transition: all 0.2s ease;
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius);
+  padding: var(--vendor-spacing-md);
+  border: 1px solid var(--vendor-border-light);
+  transition: all var(--vendor-transition);
+  cursor: pointer;
 }
 
 .product-performance:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: var(--vendor-primary-500);
+  box-shadow: var(--vendor-shadow);
+  transform: translateY(-1px);
+}
+
+/* Product Performance Header */
+.product-performance__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--vendor-spacing-sm);
 }
 
 .product-performance__rank {
   width: 28px;
   height: 28px;
-  background: #f3f4f6;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 600;
-  color: #6b7280;
-}
-
-.product-performance__image {
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.product-performance__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.product-performance__placeholder {
-  width: 100%;
-  height: 100%;
-  background: #2d5a3d;
+  border-radius: var(--vendor-radius-full);
+  background: linear-gradient(135deg, var(--vendor-brand) 0%, var(--vendor-brand-light) 100%);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.product-performance__info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
 }
 
 .product-performance__name {
   font-size: 14px;
   font-weight: 600;
-  color: #1f2937;
+  color: var(--vendor-text-primary);
+  flex: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.product-performance__category {
-  font-size: 12px;
-  color: #6b7280;
+  margin: 0 var(--vendor-spacing-sm);
 }
 
 .product-performance__sales {
+  font-size: 12px;
+  color: var(--vendor-text-muted);
+}
+
+/* Product Performance Stats */
+.product-performance__stats {
+  display: flex;
+  gap: var(--vendor-spacing-md);
+}
+
+.product-performance__stat {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2px;
+  gap: var(--vendor-spacing-xs);
 }
 
-.product-performance__sales-count {
-  font-size: 16px;
-  font-weight: 700;
-  color: #1f2937;
-}
-
-.product-performance__sales-label {
-  font-size: 11px;
-  color: #9ca3af;
-}
-
-.product-performance__trend {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  font-size: 12px;
+.product-performance__stat-label {
+  font-size: 10px;
+  color: var(--vendor-text-muted);
   font-weight: 600;
-  padding: 4px 8px;
-  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.product-performance--positive {
-  background: #dcfce7;
-  color: #16a34a;
-}
-
-.product-performance--negative {
-  background: #fee2e2;
-  color: #dc2626;
-}
-
-.product-performance--neutral {
-  background: #f3f4f6;
-  color: #6b7280;
-}
-
-.product-performance__price {
+.product-performance__stat-value {
   font-size: 14px;
-  font-weight: 600;
-  color: #2d5a3d;
-  text-align: right;
+  font-weight: 700;
+  color: var(--vendor-brand);
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .product-performance {
-    grid-template-columns: 32px 40px 1fr 60px 50px 60px;
-    gap: 8px;
-    padding: 8px;
-  }
-  
-  .product-performance__image {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .product-performance__name {
-    font-size: 13px;
-  }
-  
-  .product-performance__sales-count {
-    font-size: 14px;
-  }
-}
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
 
 @media (max-width: 768px) {
   .product-performance {
-    grid-template-columns: 28px 1fr;
-    grid-template-areas: 
-      "rank name"
-      "image name"
-      "sales trend"
-      "price price";
-  }
-  
-  .product-performance__rank {
-    grid-area: rank;
-    justify-self: start;
-  }
-  
-  .product-performance__image {
-    grid-area: image;
-    justify-self: start;
-  }
-  
-  .product-performance__info {
-    grid-area: name;
-  }
-  
-  .product-performance__sales {
-    grid-area: sales;
-    justify-self: start;
-  }
-  
-  .product-performance__trend {
-    grid-area: trend;
-    justify-self: start;
-  }
-  
-  .product-performance__price {
-    grid-area: price;
-    justify-self: end;
-  }
-  
-  .product-performance__image {
-    width: 36px;
-    height: 36px;
+    padding: var(--vendor-spacing-sm);
   }
   
   .product-performance__rank {
@@ -203,16 +105,11 @@
     font-size: 13px;
   }
   
-  .product-performance__sales-count {
-    font-size: 13px;
-  }
-  
-  .product-performance__trend {
+  .product-performance__sales {
     font-size: 11px;
-    padding: 2px 6px;
   }
   
-  .product-performance__price {
+  .product-performance__stat-value {
     font-size: 13px;
   }
 }

@@ -1,0 +1,66 @@
+/* ===================================================================
+   Food Campus Vendor - Products Table
+   Modern SaaS Products Table Component
+   =================================================================== */
+
+@import url('./vendor-variables.css');
+@import url('./vendor-shared.css');
+
+/* Products Table Container */
+.products-table {
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius-lg);
+  box-shadow: var(--vendor-shadow);
+  border: 1px solid var(--vendor-border-light);
+  overflow: hidden;
+}
+
+/* Products Table */
+.products-table__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.products-table__thead {
+  background: var(--vendor-bg-secondary);
+}
+
+.products-table__th {
+  padding: var(--vendor-spacing-md) var(--vendor-spacing-lg);
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--vendor-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--vendor-border-light);
+}
+
+.products-table__tbody {
+}
+
+.products-table__tr {
+  border-bottom: 1px solid var(--vendor-border-light);
+  transition: background var(--vendor-transition-fast);
+}
+
+.products-table__tr:hover {
+  background: var(--vendor-bg-secondary);
+}
+
+.products-table__td {
+  padding: var(--vendor-spacing-md) var(--vendor-spacing-lg);
+  font-size: 13px;
+  color: var(--vendor-text-primary);
+}
+
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .products-table__th,
+  .products-table__td {
+    padding: var(--vendor-spacing-sm);
+  }
+}
