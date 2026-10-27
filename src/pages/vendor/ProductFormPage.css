@@ -1,0 +1,290 @@
+/* ===================================================================
+   Food Campus Vendor - Product Form Page
+   Modern SaaS Design System - 2026
+   =================================================================== */
+
+@import url('../../components/vendor/styles/vendor-variables.css');
+@import url('../../components/vendor/styles/vendor-shared.css');
+
+/* ===================================================================
+   Page Container
+   =================================================================== */
+
+.product-form-page {
+  min-height: calc(100vh - var(--vendor-header-height));
+  display: flex;
+  flex-direction: column;
+  background: var(--vendor-bg-secondary);
+  padding: var(--vendor-spacing-xl);
+  gap: var(--vendor-spacing-xl);
+}
+
+/* ===================================================================
+   Page Content
+   =================================================================== */
+
+.product-form-page__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--vendor-spacing-lg);
+}
+
+/* ===================================================================
+   Card Container
+   =================================================================== */
+
+.product-form-page__card {
+  background: var(--vendor-bg-primary);
+  border-radius: var(--vendor-radius-xl);
+  box-shadow: var(--vendor-shadow-md);
+  border: 1px solid var(--vendor-border-light);
+  overflow: hidden;
+  transition: all var(--vendor-transition);
+  flex: 1;
+}
+
+.product-form-page__card:hover {
+  box-shadow: var(--vendor-shadow-lg);
+}
+
+/* ===================================================================
+   Page Header
+   =================================================================== */
+
+.product-form-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--vendor-spacing-lg) var(--vendor-spacing-xl);
+  border-bottom: 1px solid var(--vendor-border-light);
+  flex-wrap: wrap;
+  gap: var(--vendor-spacing-md);
+}
+
+.product-form-page__title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vendor-spacing-xs);
+}
+
+.product-form-page__title h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--vendor-text-primary);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.product-form-page__title p {
+  font-size: 14px;
+  color: var(--vendor-text-secondary);
+  margin: 0;
+}
+
+/* ===================================================================
+   Form Container
+   =================================================================== */
+
+.product-form-page__form-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--vendor-spacing-xl);
+  overflow-y: auto;
+  max-height: calc(100vh - 300px);
+}
+
+/* ===================================================================
+   Loading State
+   =================================================================== */
+
+.product-form-page__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--vendor-spacing-3xl);
+  gap: var(--vendor-spacing-md);
+}
+
+.product-form-page__spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--vendor-border-light);
+  border-top-color: var(--vendor-brand);
+  border-radius: var(--vendor-radius-full);
+  animation: spin var(--vendor-transition-slow) linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.product-form-page__loading-text {
+  font-size: 14px;
+  color: var(--vendor-text-muted);
+}
+
+/* ===================================================================
+   Error State
+   =================================================================== */
+
+.product-form-page__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--vendor-spacing-3xl);
+  text-align: center;
+  color: var(--vendor-error-500);
+}
+
+.product-form-page__error-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--vendor-spacing-lg);
+}
+
+.product-form-page__error-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 var(--vendor-spacing-xs) 0;
+}
+
+.product-form-page__error-message {
+  font-size: 14px;
+  color: var(--vendor-text-secondary);
+  margin: 0;
+}
+
+/* ===================================================================
+   Success State
+   =================================================================== */
+
+.product-form-page__success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--vendor-spacing-3xl);
+  text-align: center;
+}
+
+.product-form-page__success-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--vendor-success-500);
+  margin-bottom: var(--vendor-spacing-lg);
+}
+
+.product-form-page__success-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--vendor-text-primary);
+  margin: 0 0 var(--vendor-spacing-xs) 0;
+}
+
+.product-form-page__success-message {
+  font-size: 14px;
+  color: var(--vendor-text-secondary);
+  margin: 0;
+}
+
+/* ===================================================================
+   Form Wrapper
+   =================================================================== */
+
+.product-form-page__form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vendor-spacing-lg);
+}
+
+/* ===================================================================
+   Responsive Design
+   =================================================================== */
+
+@media (max-width: 1024px) {
+  .product-form-page {
+    padding: var(--vendor-spacing-lg);
+  }
+  
+  .product-form-page__header {
+    padding: var(--vendor-spacing-md) var(--vendor-spacing-lg);
+  }
+  
+  .product-form-page__title h1 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-form-page {
+    padding: var(--vendor-spacing-md);
+  }
+  
+  .product-form-page__header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--vendor-spacing-md);
+  }
+  
+  .product-form-page__title h1 {
+    font-size: 18px;
+  }
+  
+  .product-form-page__form-container {
+    padding: var(--vendor-spacing-md);
+    max-height: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-form-page__title h1 {
+    font-size: 16px;
+  }
+  
+  .product-form-page__title p {
+    font-size: 13px;
+  }
+  
+  .product-form-page__form-container {
+    padding: var(--vendor-spacing-sm);
+  }
+}
+
+/* ===================================================================
+   Reduced Motion
+   =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .product-form-page__card {
+    transition: none;
+  }
+  
+  .product-form-page__spinner {
+    animation: none;
+  }
+}
+
+/* ===================================================================
+   Print Styles
+   =================================================================== */
+
+@media print {
+  .product-form-page {
+    padding: 0;
+  }
+  
+  .product-form-page__header {
+    display: none;
+  }
+  
+  .product-form-page__card {
+    box-shadow: none;
+    border: none;
+  }
+}
